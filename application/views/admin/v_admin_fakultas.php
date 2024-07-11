@@ -95,7 +95,7 @@ $this->load->view('admin/v_sidebar', $page);
 
                   <td style="text-align:right;">
                         <a class="btn" data-toggle="modal" data-target="#ModalEdit<?php echo $pengguna_id;?>"><span class="fa fa-pencil"></span></a>
-                        <a class="btn" href="<?php echo base_url().'admin/pengguna/reset_password/'.$pengguna_id;?>"><span class="fa fa-refresh"></span></a>
+                        <!-- <a class="btn" href="<?php echo base_url().'admin/pengguna/reset_password/'.$pengguna_id;?>"><span class="fa fa-refresh"></span></a> -->
                         <a class="btn" data-toggle="modal" data-target="#ModalHapus<?php echo $pengguna_id;?>"><span class="fa fa-trash"></span></a>
                   </td>
                 </tr>
@@ -129,7 +129,7 @@ $this->load->view('admin/v_sidebar', $page);
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><span class="fa fa-close"></span></span></button>
                         <h4 class="modal-title" id="myModalLabel">Add Admin Fakultas</h4>
                     </div>
-                    <form class="form-horizontal" action="<?php echo base_url().'admin/pengguna/simpan_pengguna'?>" method="post" enctype="multipart/form-data">
+                    <form class="form-horizontal" action="<?php echo base_url().'admin/pengguna/simpan_pengguna?type=admin_fakultas'?>" method="post" enctype="multipart/form-data">
                     <div class="modal-body">
 
                                     <div class="form-group">
@@ -210,7 +210,7 @@ $this->load->view('admin/v_sidebar', $page);
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><span class="fa fa-close"></span></span></button>
                         <h4 class="modal-title" id="myModalLabel">Edit Admin Fakultas</h4>
                     </div>
-                    <form class="form-horizontal" action="<?php echo base_url().'admin/pengguna/update_pengguna'?>" method="post" enctype="multipart/form-data">
+                    <form class="form-horizontal" action="<?php echo base_url().'admin/pengguna/update_pengguna?type=admin_fakultas'?>" method="post" enctype="multipart/form-data">
                     <div class="modal-body">
                             
                             <input type="hidden" name="kode" value="<?php echo $pengguna_id;?>"/>
@@ -282,7 +282,7 @@ $this->load->view('admin/v_sidebar', $page);
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><span class="fa fa-close"></span></span></button>
                         <h4 class="modal-title" id="myModalLabel">Hapus Admin Fakultas</h4>
                     </div>
-                    <form class="form-horizontal" action="<?php echo base_url().'admin/pengguna/hapus_pengguna'?>" method="post" enctype="multipart/form-data">
+                    <form class="form-horizontal" action="<?php echo base_url().'admin/pengguna/hapus_pengguna?type=admin_fakultas'?>" method="post" enctype="multipart/form-data">
                     <div class="modal-body">
 							<input type="hidden" name="kode" value="<?php echo $pengguna_id;?>"/>
                             <p>Apakah Anda yakin mau menghapus Admin Fakultas <b><?php echo $nama;?></b> ?</p>

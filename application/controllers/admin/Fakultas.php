@@ -24,7 +24,7 @@ class Fakultas extends CI_Controller
         if ($type == "1") {
             $this->load->view('admin/v_fakultas', $x);
         } else {
-            $this->load->view('admin/v_fakultas_lainnya', $x);
+            // $this->load->view('admin/v_fakultas_lainnya', $x);
         }
     }
 
@@ -38,5 +38,17 @@ class Fakultas extends CI_Controller
         echo $this->session->set_flashdata('msg','success');
         redirect($this->view_url."?type=$is_fakultas");
         
+    }
+
+    public function edit_fakultas()
+    {
+        $is_fakultas = $this->input->post('is_fakultas');
+        $id_fakultas = $this->input->post('id_fakultas');
+        $nama_fakultas = $this->input->post('nama_fakultas');
+        $admin_fakultas = $this->input->post('admin_fakultas');
+
+        $this->m_fakultas->edit_fakultas($id_fakultas, $nama_fakultas, $admin_fakultas);
+        echo $this->session->set_flashdata('msg', 'edit');
+        redirect($this->view_url."?type=$is_fakultas");
     }
 }

@@ -31,8 +31,8 @@ $jum_pesan = $query->num_rows();
           </span>
         </a>
         <ul class="treeview-menu">
-          <li><a href="<?php echo base_url() . 'admin/pengguna?type=super_admin' ?>"><i class="fa fa-user-plus"></i> Admin Fakultas</a></li>
-          <li><a href="<?php echo base_url() . 'admin/pengguna?type=admin_fakultas' ?>"><i class="fa fa-user-plus"></i> Super Admin</a></li>
+          <li><a href="<?php echo base_url() . 'admin/pengguna?type=super_admin' ?>"><i class="fa fa-user-plus"></i> Super Admin</a></li>
+          <li><a href="<?php echo base_url() . 'admin/pengguna?type=admin_fakultas' ?>"><i class="fa fa-user-plus"></i> Admin Fakultas</a></li>
         </ul>
       </li>
 
@@ -46,7 +46,7 @@ $jum_pesan = $query->num_rows();
         </a>
         <ul class="treeview-menu">
           <li><a href="<?php echo base_url() . 'admin/fakultas?type=1' ?>"><i class="fa fa-building-o"></i> Fakultas</a></li>
-          <li><a href="<?php echo base_url() . 'admin/fakultas?type=2' ?>"><i class="fa fa-bars"></i> Lainnya</a></li>
+          <!-- <li><a href="<?php echo base_url() . 'admin/fakultas?type=2' ?>"><i class="fa fa-bars"></i> Lainnya</a></li> -->
         </ul>
       </li>
 

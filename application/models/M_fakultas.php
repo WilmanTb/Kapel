@@ -14,4 +14,10 @@ class M_fakultas extends CI_Model
         VALUES ('$nama', '$admin', '$isFakultas')");
         return $result;
     }
+
+    function edit_fakultas($id_fakultas, $nama_fakultas, $admin_fakultas)
+    {
+        $result = $this->db->query("UPDATE tbl_fakultas SET nama_fakultas = '$nama_fakultas', admin_fakultas = '$admin_fakultas' WHERE id = '$id_fakultas'");
+        return $result;
+    }
 }

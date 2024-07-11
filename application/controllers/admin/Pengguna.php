@@ -44,6 +44,8 @@ class Pengguna extends CI_Controller
 		$config['allowed_types'] = 'gif|jpg|png|jpeg|bmp';
 		$config['encrypt_name'] = TRUE;
 
+		$type = $this->input->get("type");
+		
 		$this->upload->initialize($config);
 		$gambar = '';
 		if (!empty($_FILES['filefoto']['name'])) {
@@ -64,7 +66,7 @@ class Pengguna extends CI_Controller
 				$gambar = $gbr['file_name'];
 			} else {
 				echo $this->session->set_flashdata('msg', 'warning');
-				redirect('admin/pengguna');
+				redirect('admin/pengguna?type='.$type);
 			}
 		}
 		$nama = $this->input->post('xnama');
@@ -79,7 +81,7 @@ class Pengguna extends CI_Controller
 		} else {
 			$this->m_pengguna->simpan_pengguna($nama, $username, $password, $email, $level, $gambar);
 			echo $this->session->set_flashdata('msg', 'success');
-			redirect('admin/pengguna');
+			redirect('admin/pengguna?type='.$type);
 		}
 	}
 
@@ -89,6 +91,8 @@ class Pengguna extends CI_Controller
 		$config['upload_path'] = './assets/images/'; //path folder
 		$config['allowed_types'] = 'gif|jpg|png|jpeg|bmp'; //type yang dapat diakses bisa anda sesuaikan
 		$config['encrypt_name'] = TRUE; //nama yang terupload nantinya
+
+		$type = $this->input->get("type");
 
 		$this->upload->initialize($config);
 		$gambar = "";
@@ -117,15 +121,18 @@ class Pengguna extends CI_Controller
 		$level = $this->input->post('xlevel');
 		if ($gambar == "") {
 			$this->m_pengguna->update_pengguna_tanpa_gambar($kode, $nama, $username, $email, $level);
-			redirect('admin/pengguna');
+			echo $this->session->set_flashdata('msg', 'info');
+			redirect('admin/pengguna?type='.$type);
 		} else {
 			$this->m_pengguna->update_pengguna($kode, $nama, $username, $email, $level, $gambar);
-			redirect('admin/pengguna');
+			echo $this->session->set_flashdata('msg', 'info');
+			redirect('admin/pengguna?type='.$type);
 		}
 	}
 
 	function hapus_pengguna()
 	{
+		$type = $this->input->get("type");
 		$kode = $this->input->post('kode');
 		$data = $this->m_pengguna->get_pengguna_login($kode);
 		$q = $data->row_array();
@@ -134,23 +141,23 @@ class Pengguna extends CI_Controller
 		delete_files($path);
 		$this->m_pengguna->hapus_pengguna($kode);
 		echo $this->session->set_flashdata('msg', 'success-hapus');
-		redirect('admin/pengguna');
+		redirect('admin/pengguna?type='.$type);
 	}
 
-	function reset_password()
-	{
+	// function reset_password()
+	// {
 
-		$id = $this->uri->segment(4);
-		$get = $this->m_pengguna->getusername($id);
-		if ($get->num_rows() > 0) {
-			$a = $get->row_array();
-			$b = $a['pengguna_username'];
-		}
-		$pass = rand(123456, 999999);
-		$this->m_pengguna->resetpass($id, $pass);
-		echo $this->session->set_flashdata('msg', 'show-modal');
-		echo $this->session->set_flashdata('uname', $b);
-		echo $this->session->set_flashdata('upass', $pass);
-		redirect('admin/pengguna');
-	}
+	// 	$id = $this->uri->segment(4);
+	// 	$get = $this->m_pengguna->getusername($id);
+	// 	if ($get->num_rows() > 0) {
+	// 		$a = $get->row_array();
+	// 		$b = $a['pengguna_username'];
+	// 	}
+	// 	$pass = rand(123456, 999999);
+	// 	$this->m_pengguna->resetpass($id, $pass);
+	// 	echo $this->session->set_flashdata('msg', 'show-modal');
+	// 	echo $this->session->set_flashdata('uname', $b);
+	// 	echo $this->session->set_flashdata('upass', $pass);
+	// 	redirect('admin/pengguna');
+	// }
 }

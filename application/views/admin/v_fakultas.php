@@ -1,9 +1,5 @@
-<!--Counter Inbox-->
 <?php
-$query = $this->db->query("SELECT * FROM tbl_inbox WHERE inbox_status='1'");
-$query2 = $this->db->query("SELECT * FROM tbl_komentar WHERE komentar_status='0'");
-$jum_comment = $query2->num_rows();
-$jum_pesan = $query->num_rows();
+$type = isset($_GET['type']) ? $_GET['type'] : null;
 ?>
 <!DOCTYPE html>
 <html>
@@ -11,7 +7,7 @@ $jum_pesan = $query->num_rows();
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Data Superadmin</title>
+    <title>Data Fakultas</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <link rel="shorcut icon" type="text/css" href="<?php echo base_url() . 'theme/images/UNIKA1.png' ?>">
@@ -92,7 +88,7 @@ $jum_pesan = $query->num_rows();
                                                     <td>0 Orang</td>
 
                                                     <td style="text-align:right;">
-                                                        <a class="btn" href="<?php echo base_url() . 'admin/pengguna/reset_password/' . $id_fakultas; ?>"><span class="fa fa-eye"></span></a>
+                                                        <a class="btn" href="<?php echo base_url() . 'admin/detail_fakultas?type='.$type.'&'.'id=' . $id_fakultas; ?>"><span class="fa fa-eye"></span></a>
                                                         <a class="btn" data-toggle="modal" data-target="#ModalEdit<?php echo $id_fakultas; ?>"><span class="fa fa-pencil"></span></a>
                                                         <a class="btn" data-toggle="modal" data-target="#ModalHapus<?php echo $id_fakultas; ?>"><span class="fa fa-trash"></span></a>
                                                     </td>
@@ -119,7 +115,7 @@ $jum_pesan = $query->num_rows();
     </div>
     <!-- ./wrapper -->
 
-    <!--Modal Add Pengguna-->
+    <!--Modal Add Fakultas-->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -127,7 +123,7 @@ $jum_pesan = $query->num_rows();
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><span class="fa fa-close"></span></span></button>
                     <h4 class="modal-title" id="myModalLabel">Add Fakultas</h4>
                 </div>
-                <form class="form-horizontal" action="<?php echo base_url() . 'admin/fakultas/add_fakultas?type=1' ?>" method="post" enctype="multipart/form-data">
+                <form class="form-horizontal" action="<?php echo base_url() . 'admin/fakultas/add_fakultas?type='.$type ?>" method="post" enctype="multipart/form-data">
                     <div class="modal-body">
 
                         <div class="form-group">
@@ -143,7 +139,7 @@ $jum_pesan = $query->num_rows();
                                 <select class="form-control" name="admin_fakultas" required>
                                     <option value="" selected>Pilih Admin Fakultas</option>
                                     <?php
-                                    $query = $this->db->query("SELECT U.pengguna_id, U.pengguna_nama 
+                                    $query = $this->db->query("SELECT U.pengguna_id AS id_admin, U.pengguna_nama AS nama_admin
                                     FROM tbl_pengguna U 
                                     LEFT JOIN tbl_fakultas F
                                     ON U.pengguna_id = F.admin_fakultas
@@ -153,7 +149,7 @@ $jum_pesan = $query->num_rows();
                                     if ($results) {
                                         foreach ($results as $result) {
                                     ?>
-                                            <option value="<?php echo ($result['pengguna_id']) ?>"><?php echo ($result['pengguna_nama']) ?></option>
+                                            <option value="<?php echo ($result['id_admin']) ?>"><?php echo ($result['nama_admin']) ?></option>
                                     <?php
                                         }
                                     }
@@ -176,61 +172,55 @@ $jum_pesan = $query->num_rows();
         $id_fakultas = $i['id'];
         $nama_fakultas = $i['nama_fakultas'];
         $admin_fakultas = $i['nama_admin'];
+        $is_fakultas = $i['is_fakultas'];
     ?>
-        <!--Modal Edit Pengguna-->
-        <div class="modal fade" id="ModalEdit<?php echo $id; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <!--Modal Edit Fakultas-->
+        <div class="modal fade" id="ModalEdit<?php echo $id_fakultas; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><span class="fa fa-close"></span></span></button>
-                        <h4 class="modal-title" id="myModalLabel">Edit Superadmin</h4>
+                        <h4 class="modal-title" id="myModalLabel">Edit Fakultas</h4>
                     </div>
-                    <form class="form-horizontal" action="<?php echo base_url() . 'admin/pengguna/update_pengguna' ?>" method="post" enctype="multipart/form-data">
+                    <form class="form-horizontal" action="<?php echo base_url() . 'admin/fakultas/edit_fakultas?type='.$type ?>" method="post" enctype="multipart/form-data">
                         <div class="modal-body">
 
-                            <input type="hidden" name="kode" value="<?php echo $id; ?>" />
-
+                            <input type="hidden" name="id_fakultas" value="<?php echo $id_fakultas; ?>" />
+                            <input type="hidden" name="is_fakultas" value="<?php echo $is_fakultas; ?>" />
 
                             <div class="form-group">
                                 <label for="inputEmail3" class="col-sm-4 control-label">Nama</label>
                                 <div class="col-sm-7">
-                                    <input type="text" name="xnama" class="form-control" value="<?php echo $pengguna_nama; ?>" id="inputUserName" placeholder="Nama" required>
+                                    <input type="text" name="nama_fakultas" class="form-control" value="<?php echo $nama_fakultas; ?>" id="inputUserName" placeholder="Nama fakultas" required>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label for="inputEmail3" class="col-sm-4 control-label">Email</label>
+                                <label for="inputUserName" class="col-sm-4 control-label">Admin Fakultas</label>
                                 <div class="col-sm-7">
-                                    <input type="email" name="xemail" class="form-control" value="<?php echo $pengguna_email; ?>" id="inputEmail3" placeholder="Email" required>
-                                </div>
-                            </div>
-
-
-                            <div class="form-group">
-                                <label for="inputUserName" class="col-sm-4 control-label">Username</label>
-                                <div class="col-sm-7">
-                                    <input type="text" name="xusername" class="form-control" value="<?php echo $pengguna_username; ?>" id="inputUserName" placeholder="Username" required>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="inputUserName" class="col-sm-4 control-label">Level</label>
-                                <div class="col-sm-7">
-                                    <select class="form-control" name="xlevel" required>
-                                        <option value="1" selected>Administrator</option>
+                                    <select class="form-control" name="admin_fakultas" required>
+                                        <option value="">Pilih Admin Fakultas</option>
+                                        <?php
+                                        $query_fakultas = $this->db->query("SELECT*FROM tbl_fakultas WHERE id = $id_fakultas");
+                                        $result_fakultas = $query_fakultas->result_array();
+                                        $query = $this->db->query("SELECT U.pengguna_id AS id_admin, U.pengguna_nama AS nama_admin
+                                        FROM tbl_pengguna U 
+                                        INNER JOIN tbl_fakultas F
+                                        ON U.pengguna_id = F.admin_fakultas
+                                        WHERE U.pengguna_level = '2'");
+                                        $results = $query->result_array();
+                                        if ($results) {
+                                            foreach ($results as $result) {
+                                                $selected = ($result['id_admin'] == $result_fakultas[0]['admin_fakultas']) ? 'selected' : '';
+                                        ?>
+                                                <option value="<?php echo ($result['id_admin']) ?>" <?php echo $selected ?>><?php echo ($result['nama_admin']) ?></option>
+                                        <?php
+                                            }
+                                        }
+                                        ?>
                                     </select>
                                 </div>
                             </div>
-
-
-                            <div class="form-group">
-                                <label for="inputUserName" class="col-sm-4 control-label">Photo</label>
-                                <div class="col-sm-7">
-                                    <input type="file" name="filefoto" />
-                                </div>
-                            </div>
-
-
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default btn-flat" data-dismiss="modal">Close</button>
@@ -247,18 +237,18 @@ $jum_pesan = $query->num_rows();
         $nama_fakultas = $i['nama_fakultas'];
         $admin_fakultas = $i['nama_admin'];
     ?>
-        <!--Modal Hapus Pengguna-->
-        <div class="modal fade" id="ModalHapus<?php echo $id; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <!--Modal Hapus Fakultas-->
+        <div class="modal fade" id="ModalHapus<?php echo $id_fakultas; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><span class="fa fa-close"></span></span></button>
-                        <h4 class="modal-title" id="myModalLabel">Hapus Superadmin</h4>
+                        <h4 class="modal-title" id="myModalLabel">Hapus Fakultas</h4>
                     </div>
-                    <form class="form-horizontal" action="<?php echo base_url() . 'admin/pengguna/hapus_pengguna' ?>" method="post" enctype="multipart/form-data">
+                    <form class="form-horizontal" action="<?php echo base_url() . 'admin/pengguna/hapus_pengguna?type='.$type ?>" method="post" enctype="multipart/form-data">
                         <div class="modal-body">
-                            <input type="hidden" name="kode" value="<?php echo $id; ?>" />
-                            <p>Apakah Anda yakin mau menghapus Superadmin <b><?php echo $nama; ?></b> ?</p>
+                            <input type="hidden" name="kode" value="<?php echo $id_fakultas; ?>" />
+                            <p>Apakah Anda yakin mau menghapus Fakultas <b><?php echo $nama_fakultas; ?></b> ?</p>
 
                         </div>
                         <div class="modal-footer">
@@ -335,73 +325,49 @@ $jum_pesan = $query->num_rows();
             });
         });
     </script>
-    <?php if ($this->session->flashdata('msg') == 'error') : ?>
-        <script type="text/javascript">
-            $.toast({
-                heading: 'Error',
-                text: "Password dan Ulangi Password yang Anda masukan tidak sama.",
-                showHideTransition: 'slide',
-                icon: 'error',
-                hideAfter: false,
-                position: 'bottom-right',
-                bgColor: '#FF4859'
-            });
-        </script>
-    <?php elseif ($this->session->flashdata('msg') == 'warning') : ?>
-        <script type="text/javascript">
-            $.toast({
-                heading: 'Warning',
-                text: "Gambar yang Anda masukan terlalu besar.",
-                showHideTransition: 'slide',
-                icon: 'warning',
-                hideAfter: false,
-                position: 'bottom-right',
-                bgColor: '#FFC017'
-            });
-        </script>
-    <?php elseif ($this->session->flashdata('msg') == 'success') : ?>
-        <script type="text/javascript">
-            $.toast({
-                heading: 'Success',
-                text: "Superadmin Berhasil disimpan ke database.",
-                showHideTransition: 'slide',
-                icon: 'success',
-                hideAfter: false,
-                position: 'bottom-right',
-                bgColor: '#7EC857'
-            });
-        </script>
-    <?php elseif ($this->session->flashdata('msg') == 'info') : ?>
-        <script type="text/javascript">
-            $.toast({
-                heading: 'Info',
-                text: "Superadmin berhasil di update",
-                showHideTransition: 'slide',
-                icon: 'info',
-                hideAfter: false,
-                position: 'bottom-right',
-                bgColor: '#00C9E6'
-            });
-        </script>
-    <?php elseif ($this->session->flashdata('msg') == 'success-hapus') : ?>
-        <script type="text/javascript">
-            $.toast({
-                heading: 'Success',
-                text: "Superadmin Berhasil dihapus.",
-                showHideTransition: 'slide',
-                icon: 'success',
-                hideAfter: false,
-                position: 'bottom-right',
-                bgColor: '#7EC857'
-            });
-        </script>
-    <?php elseif ($this->session->flashdata('msg') == 'show-modal') : ?>
-        <script type="text/javascript">
-            $('#ModalResetPassword').modal('show');
-        </script>
-    <?php else : ?>
+<?php if ($this->session->flashdata('msg') == 'success') : ?>
+    <script type="text/javascript">
+        $.toast({
+            heading: 'Success',
+            text: "Fakultas Berhasil disimpan ke database.",
+            showHideTransition: 'slide',
+            icon: 'success',
+            hideAfter: false,
+            position: 'bottom-right',
+            bgColor: '#7EC857'
+        });
+    </script>
+<?php elseif ($this->session->flashdata('msg') == 'edit') : ?>
+    <script type="text/javascript">
+        $.toast({
+            heading: 'Info',
+            text: "Fakultas berhasil di update",
+            showHideTransition: 'slide',
+            icon: 'info',
+            hideAfter: false,
+            position: 'bottom-right',
+            bgColor: '#00C9E6'
+        });
+    </script>
+<?php elseif ($this->session->flashdata('msg') == 'success-hapus') : ?>
+    <script type="text/javascript">
+        $.toast({
+            heading: 'Success',
+            text: "Fakultas Berhasil dihapus.",
+            showHideTransition: 'slide',
+            icon: 'success',
+            hideAfter: false,
+            position: 'bottom-right',
+            bgColor: '#7EC857'
+        });
+    </script>
+<?php elseif ($this->session->flashdata('msg') == 'show-modal') : ?>
+    <script type="text/javascript">
+        $('#ModalResetPassword').modal('show');
+    </script>
+<?php else : ?>
 
-    <?php endif; ?>
+<?php endif; ?>
 </body>
 
 </html>
