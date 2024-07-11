@@ -80,15 +80,15 @@ $type = isset($_GET['type']) ? $_GET['type'] : null;
                                                 $id_fakultas = $i['id'];
                                                 $nama_fakultas = $i['nama_fakultas'];
                                                 $admin_fakultas = $i['nama_admin'];
-                                                //    $jlh_mahasiswa=$i['jlh_mahasiswa'];
+                                                $total_mahasiswa = $i['total_mahasiswa'];
                                             ?>
                                                 <tr>
                                                     <td><?php echo $nama_fakultas; ?></td>
                                                     <td><?php echo $admin_fakultas; ?></td>
-                                                    <td>0 Orang</td>
+                                                    <td><?php echo $total_mahasiswa; ?></td>
 
                                                     <td style="text-align:right;">
-                                                        <a class="btn" href="<?php echo base_url() . 'admin/detail_fakultas?type='.$type.'&'.'id=' . $id_fakultas; ?>"><span class="fa fa-eye"></span></a>
+                                                        <a class="btn" href="<?php echo base_url() . 'admin/detail_fakultas?type=' . $type . '&' . 'id=' . $id_fakultas; ?>"><span class="fa fa-eye"></span></a>
                                                         <a class="btn" data-toggle="modal" data-target="#ModalEdit<?php echo $id_fakultas; ?>"><span class="fa fa-pencil"></span></a>
                                                         <a class="btn" data-toggle="modal" data-target="#ModalHapus<?php echo $id_fakultas; ?>"><span class="fa fa-trash"></span></a>
                                                     </td>
@@ -123,7 +123,7 @@ $type = isset($_GET['type']) ? $_GET['type'] : null;
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><span class="fa fa-close"></span></span></button>
                     <h4 class="modal-title" id="myModalLabel">Add Fakultas</h4>
                 </div>
-                <form class="form-horizontal" action="<?php echo base_url() . 'admin/fakultas/add_fakultas?type='.$type ?>" method="post" enctype="multipart/form-data">
+                <form class="form-horizontal" action="<?php echo base_url() . 'admin/fakultas/add_fakultas?type=' . $type ?>" method="post" enctype="multipart/form-data">
                     <div class="modal-body">
 
                         <div class="form-group">
@@ -182,7 +182,7 @@ $type = isset($_GET['type']) ? $_GET['type'] : null;
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><span class="fa fa-close"></span></span></button>
                         <h4 class="modal-title" id="myModalLabel">Edit Fakultas</h4>
                     </div>
-                    <form class="form-horizontal" action="<?php echo base_url() . 'admin/fakultas/edit_fakultas?type='.$type ?>" method="post" enctype="multipart/form-data">
+                    <form class="form-horizontal" action="<?php echo base_url() . 'admin/fakultas/edit_fakultas?type=' . $type ?>" method="post" enctype="multipart/form-data">
                         <div class="modal-body">
 
                             <input type="hidden" name="id_fakultas" value="<?php echo $id_fakultas; ?>" />
@@ -245,7 +245,7 @@ $type = isset($_GET['type']) ? $_GET['type'] : null;
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><span class="fa fa-close"></span></span></button>
                         <h4 class="modal-title" id="myModalLabel">Hapus Fakultas</h4>
                     </div>
-                    <form class="form-horizontal" action="<?php echo base_url() . 'admin/pengguna/hapus_pengguna?type='.$type ?>" method="post" enctype="multipart/form-data">
+                    <form class="form-horizontal" action="<?php echo base_url() . 'admin/pengguna/hapus_pengguna?type=' . $type ?>" method="post" enctype="multipart/form-data">
                         <div class="modal-body">
                             <input type="hidden" name="kode" value="<?php echo $id_fakultas; ?>" />
                             <p>Apakah Anda yakin mau menghapus Fakultas <b><?php echo $nama_fakultas; ?></b> ?</p>
@@ -325,49 +325,49 @@ $type = isset($_GET['type']) ? $_GET['type'] : null;
             });
         });
     </script>
-<?php if ($this->session->flashdata('msg') == 'success') : ?>
-    <script type="text/javascript">
-        $.toast({
-            heading: 'Success',
-            text: "Fakultas Berhasil disimpan ke database.",
-            showHideTransition: 'slide',
-            icon: 'success',
-            hideAfter: false,
-            position: 'bottom-right',
-            bgColor: '#7EC857'
-        });
-    </script>
-<?php elseif ($this->session->flashdata('msg') == 'edit') : ?>
-    <script type="text/javascript">
-        $.toast({
-            heading: 'Info',
-            text: "Fakultas berhasil di update",
-            showHideTransition: 'slide',
-            icon: 'info',
-            hideAfter: false,
-            position: 'bottom-right',
-            bgColor: '#00C9E6'
-        });
-    </script>
-<?php elseif ($this->session->flashdata('msg') == 'success-hapus') : ?>
-    <script type="text/javascript">
-        $.toast({
-            heading: 'Success',
-            text: "Fakultas Berhasil dihapus.",
-            showHideTransition: 'slide',
-            icon: 'success',
-            hideAfter: false,
-            position: 'bottom-right',
-            bgColor: '#7EC857'
-        });
-    </script>
-<?php elseif ($this->session->flashdata('msg') == 'show-modal') : ?>
-    <script type="text/javascript">
-        $('#ModalResetPassword').modal('show');
-    </script>
-<?php else : ?>
+    <?php if ($this->session->flashdata('msg') == 'success') : ?>
+        <script type="text/javascript">
+            $.toast({
+                heading: 'Success',
+                text: "Fakultas Berhasil disimpan ke database.",
+                showHideTransition: 'slide',
+                icon: 'success',
+                hideAfter: false,
+                position: 'bottom-right',
+                bgColor: '#7EC857'
+            });
+        </script>
+    <?php elseif ($this->session->flashdata('msg') == 'edit') : ?>
+        <script type="text/javascript">
+            $.toast({
+                heading: 'Info',
+                text: "Fakultas berhasil di update",
+                showHideTransition: 'slide',
+                icon: 'info',
+                hideAfter: false,
+                position: 'bottom-right',
+                bgColor: '#00C9E6'
+            });
+        </script>
+    <?php elseif ($this->session->flashdata('msg') == 'success-hapus') : ?>
+        <script type="text/javascript">
+            $.toast({
+                heading: 'Success',
+                text: "Fakultas Berhasil dihapus.",
+                showHideTransition: 'slide',
+                icon: 'success',
+                hideAfter: false,
+                position: 'bottom-right',
+                bgColor: '#7EC857'
+            });
+        </script>
+    <?php elseif ($this->session->flashdata('msg') == 'show-modal') : ?>
+        <script type="text/javascript">
+            $('#ModalResetPassword').modal('show');
+        </script>
+    <?php else : ?>
 
-<?php endif; ?>
+    <?php endif; ?>
 </body>
 
 </html>
