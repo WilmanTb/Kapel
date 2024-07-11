@@ -4,7 +4,9 @@ class M_fakultas extends CI_Model
 
     function get_all_fakultas($type)
     {
-        $result = $this->db->query("SELECT F.*, U.pengguna_nama as nama_admin FROM tbl_fakultas F INNER JOIN tbl_pengguna U ON  U.pengguna_id = F.admin_fakultas WHERE F.is_fakultas = '$type'");
+        $result = $this->db->query("SELECT F.*, U.pengguna_nama as nama_admin, COUNT(M.id_Fakultas) as total_mahasiswa 
+        FROM tbl_fakultas F INNER JOIN tbl_pengguna U ON  U.pengguna_id = F.admin_fakultas 
+        LEFT JOIN tbl_mahasiswa M ON M.id_fakultas = F.id WHERE F.is_fakultas = '$type' GROUP BY F.id");
         return $result;
     }
 
