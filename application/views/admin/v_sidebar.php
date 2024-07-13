@@ -36,7 +36,7 @@ $jum_pesan = $query->num_rows();
         </ul>
       </li>
 
-      <li class="treeview <?php echo $page == 'fakultas' ? 'active' : ''; ?>" id="m_admin">
+      <li class="treeview <?php echo $page == 'master_data' ? 'active' : ''; ?>" id="m_admin">
         <a href="#">
           <i class="fa fa-database"></i>
           <span>Master Data</span>
@@ -46,7 +46,7 @@ $jum_pesan = $query->num_rows();
         </a>
         <ul class="treeview-menu">
           <li><a href="<?php echo base_url() . 'admin/fakultas?type=1' ?>"><i class="fa fa-building-o"></i> Fakultas</a></li>
-          <!-- <li><a href="<?php echo base_url() . 'admin/fakultas?type=2' ?>"><i class="fa fa-bars"></i> Lainnya</a></li> -->
+          <li><a href="<?php echo base_url() . 'admin/lainnya' ?>"><i class="fa fa-bars"></i> Lainnya</a></li>
         </ul>
       </li>
 

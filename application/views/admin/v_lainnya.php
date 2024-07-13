@@ -1,13 +1,10 @@
-<?php
-$type = isset($_GET['type']) ? $_GET['type'] : null;
-?>
 <!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Data Fakultas</title>
+    <title>Data Lainnya</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <link rel="shorcut icon" type="text/css" href="<?php echo base_url() . 'theme/images/UNIKA1.png' ?>">
@@ -44,13 +41,13 @@ $type = isset($_GET['type']) ? $_GET['type'] : null;
             <!-- Content Header (Page header) -->
             <section class="content-header">
                 <h1>
-                    Data Fakultas
+                    Data Lainnya
                     <small></small>
                 </h1>
                 <ol class="breadcrumb">
                     <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
                     <li><a href="#">Master Data</a></li>
-                    <li class="active">Fakultas</li>
+                    <li class="active">Lainnya</li>
                 </ol>
             </section>
 
@@ -62,35 +59,36 @@ $type = isset($_GET['type']) ? $_GET['type'] : null;
 
                             <div class="box">
                                 <div class="box-header">
-                                    <a class="btn btn-success btn-flat" data-toggle="modal" data-target="#myModal"><span class="fa fa-user-plus"></span> Add Fakultas</a>
+                                    <a class="btn btn-success btn-flat" data-toggle="modal" data-target="#myModal"><span class="fa fa-plus"></span> Add Lainnya</a>
                                 </div>
                                 <!-- /.box-header -->
                                 <div class="box-body">
                                     <table id="example1" class="table table-striped" style="font-size:13px;">
                                         <thead>
                                             <tr>
-                                                <th>Nama Fakultas</th>
-                                                <th>Admin Fakultas</th>
-                                                <th>Jumlah Mahasiswa</th>
+                                                <th>Nama</th>
+                                                <th>Admin</th>
+                                                <th>Jumlah Anggota</th>
                                                 <th style="text-align:end;">Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php foreach ($data->result_array() as $i) :
-                                                $id_fakultas = $i['id'];
-                                                $nama_fakultas = $i['nama_fakultas'];
-                                                $admin_fakultas = $i['nama_admin'];
-                                                $total_mahasiswa = $i['total_mahasiswa'];
+                                                $id_lainnya = $i['id'];
+                                                $nama_lainnya = $i['name'];
+                                                $admin_lainnya = $i['nama_admin'];
+                                                // $total_anggota = $i['total_mahasiswa'];
                                             ?>
                                                 <tr>
-                                                    <td><?php echo $nama_fakultas; ?></td>
-                                                    <td><?php echo $admin_fakultas; ?></td>
-                                                    <td><?php echo $total_mahasiswa; ?></td>
+                                                    <td><?php echo $nama_lainnya; ?></td>
+                                                    <td><?php echo $admin_lainnya; ?></td>
+                                                    <td>0 ANGGOTA</td>
+                                                    <!-- <td><?php echo $total_mahasiswa; ?></td> -->
 
                                                     <td style="text-align:right;">
-                                                        <a class="btn" href="<?php echo base_url() . 'admin/detail_fakultas?type=' . $type . '&' . 'id=' . $id_fakultas; ?>"><span class="fa fa-eye"></span></a>
-                                                        <a class="btn" data-toggle="modal" data-target="#ModalEdit<?php echo $id_fakultas; ?>"><span class="fa fa-pencil"></span></a>
-                                                        <a class="btn" data-toggle="modal" data-target="#ModalHapus<?php echo $id_fakultas; ?>"><span class="fa fa-trash"></span></a>
+                                                        <a class="btn" href="<?php echo base_url() . 'admin/detail_lainnya?id=' . $id_lainnya; ?>"><span class="fa fa-eye"></span></a>
+                                                        <a class="btn" data-toggle="modal" data-target="#ModalEdit<?php echo $id_lainnya; ?>"><span class="fa fa-pencil"></span></a>
+                                                        <a class="btn" data-toggle="modal" data-target="#ModalHapus<?php echo $id_lainnya; ?>"><span class="fa fa-trash"></span></a>
                                                     </td>
                                                 </tr>
                                             <?php endforeach; ?>
@@ -115,35 +113,35 @@ $type = isset($_GET['type']) ? $_GET['type'] : null;
     </div>
     <!-- ./wrapper -->
 
-    <!--Modal Add Fakultas-->
+    <!--Modal Add Lainnya-->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><span class="fa fa-close"></span></span></button>
-                    <h4 class="modal-title" id="myModalLabel">Add Fakultas</h4>
+                    <h4 class="modal-title" id="myModalLabel">Add Lainnya</h4>
                 </div>
-                <form class="form-horizontal" action="<?php echo base_url() . 'admin/fakultas/add_fakultas?type=' . $type ?>" method="post" enctype="multipart/form-data">
+                <form class="form-horizontal" action="<?php echo base_url() . 'admin/lainnya/add_lainnya'?>" method="post" enctype="multipart/form-data">
                     <div class="modal-body">
 
                         <div class="form-group">
-                            <label for="inputUserName" class="col-sm-4 control-label">Nama Fakultas</label>
+                            <label for="inputUserName" class="col-sm-4 control-label">Nama</label>
                             <div class="col-sm-7">
-                                <input type="text" name="nama_fakultas" class="form-control" id="inputUserName" placeholder="Nama Fakultas" required>
+                                <input type="text" name="nama_lainnya" class="form-control" id="inputUserName" placeholder="Nama" required>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="inputUserName" class="col-sm-4 control-label">Admin Fakultas</label>
+                            <label for="inputUserName" class="col-sm-4 control-label">Admin</label>
                             <div class="col-sm-7">
-                                <select class="form-control" name="admin_fakultas" required>
-                                    <option value="" selected>Pilih Admin Fakultas</option>
+                                <select class="form-control" name="admin_lainnya" required>
+                                    <option value="" selected>Pilih Admin</option>
                                     <?php
                                     $query = $this->db->query("SELECT U.pengguna_id AS id_admin, U.pengguna_nama AS nama_admin
                                     FROM tbl_pengguna U 
-                                    LEFT JOIN tbl_fakultas F
-                                    ON U.pengguna_id = F.admin_fakultas
-                                    WHERE U.pengguna_level = '2' AND F.admin_fakultas IS NULL");
+                                    LEFT JOIN tbl_lainnya L
+                                    ON U.pengguna_id = L.admin
+                                    WHERE U.pengguna_level = '3' AND L.admin IS NULL");
                                     $results = $query->result_array();
 
                                     if ($results) {
@@ -169,49 +167,47 @@ $type = isset($_GET['type']) ? $_GET['type'] : null;
 
 
     <?php foreach ($data->result_array() as $i) :
-        $id_fakultas = $i['id'];
-        $nama_fakultas = $i['nama_fakultas'];
-        $admin_fakultas = $i['nama_admin'];
-        $is_fakultas = $i['is_fakultas'];
+        $id_lainnya = $i['id'];
+        $nama_lainnya = $i['name'];
+        $admin_lainnya = $i['admin'];
     ?>
-        <!--Modal Edit Fakultas-->
-        <div class="modal fade" id="ModalEdit<?php echo $id_fakultas; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <!--Modal Edit Lainnya-->
+        <div class="modal fade" id="ModalEdit<?php echo $id_lainnya; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><span class="fa fa-close"></span></span></button>
-                        <h4 class="modal-title" id="myModalLabel">Edit Fakultas</h4>
+                        <h4 class="modal-title" id="myModalLabel">Edit Data</h4>
                     </div>
-                    <form class="form-horizontal" action="<?php echo base_url() . 'admin/fakultas/edit_fakultas?type=' . $type ?>" method="post" enctype="multipart/form-data">
+                    <form class="form-horizontal" action="<?php echo base_url() . 'admin/lainnya/edit_lainnya'?>" method="post" enctype="multipart/form-data">
                         <div class="modal-body">
 
-                            <input type="hidden" name="id_fakultas" value="<?php echo $id_fakultas; ?>" />
-                            <input type="hidden" name="is_fakultas" value="<?php echo $is_fakultas; ?>" />
+                            <input type="hidden" name="id_lainnya" value="<?php echo $id_lainnya; ?>" />
 
                             <div class="form-group">
                                 <label for="inputEmail3" class="col-sm-4 control-label">Nama</label>
                                 <div class="col-sm-7">
-                                    <input type="text" name="nama_fakultas" class="form-control" value="<?php echo $nama_fakultas; ?>" id="inputUserName" placeholder="Nama fakultas" required>
+                                    <input type="text" name="nama_lainnya" class="form-control" value="<?php echo $nama_lainnya; ?>" id="inputUserName" placeholder="Nama" required>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label for="inputUserName" class="col-sm-4 control-label">Admin Fakultas</label>
+                                <label for="inputUserName" class="col-sm-4 control-label">Admin</label>
                                 <div class="col-sm-7">
-                                    <select class="form-control" name="admin_fakultas" required>
-                                        <option value="">Pilih Admin Fakultas</option>
+                                    <select class="form-control" name="admin_lainnya" required>
+                                        <option value="">Pilih Admin</option>
                                         <?php
-                                        $query_fakultas = $this->db->query("SELECT*FROM tbl_fakultas WHERE id = $id_fakultas");
-                                        $result_fakultas = $query_fakultas->result_array();
+                                        $query_lainnya = $this->db->query("SELECT*FROM tbl_lainnya WHERE id = $id_lainnya");
+                                        $result_lainnya = $query_lainnya->result_array();
                                         $query = $this->db->query("SELECT U.pengguna_id AS id_admin, U.pengguna_nama AS nama_admin
                                         FROM tbl_pengguna U 
-                                        INNER JOIN tbl_fakultas F
-                                        ON U.pengguna_id = F.admin_fakultas
-                                        WHERE U.pengguna_level = '2'");
+                                        INNER JOIN tbl_lainnya F
+                                        ON U.pengguna_id = F.admin
+                                        WHERE U.pengguna_level = '3'");
                                         $results = $query->result_array();
                                         if ($results) {
                                             foreach ($results as $result) {
-                                                $selected = ($result['id_admin'] == $result_fakultas[0]['admin_fakultas']) ? 'selected' : '';
+                                                $selected = ($result['id_admin'] == $result_lainnya[0]['admin']) ? 'selected' : '';
                                         ?>
                                                 <option value="<?php echo ($result['id_admin']) ?>" <?php echo $selected ?>><?php echo ($result['nama_admin']) ?></option>
                                         <?php
@@ -233,22 +229,21 @@ $type = isset($_GET['type']) ? $_GET['type'] : null;
     <?php endforeach; ?>
 
     <?php foreach ($data->result_array() as $i) :
-        $id_fakultas = $i['id'];
-        $nama_fakultas = $i['nama_fakultas'];
-        $admin_fakultas = $i['nama_admin'];
+        $id_lainnya = $i['id'];
+        $nama_lainnya = $i['name'];
     ?>
-        <!--Modal Hapus Fakultas-->
-        <div class="modal fade" id="ModalHapus<?php echo $id_fakultas; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <!--Modal Hapus Lainnya-->
+        <div class="modal fade" id="ModalHapus<?php echo $id_lainnya; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><span class="fa fa-close"></span></span></button>
-                        <h4 class="modal-title" id="myModalLabel">Hapus Fakultas</h4>
+                        <h4 class="modal-title" id="myModalLabel">Hapus Data</h4>
                     </div>
-                    <form class="form-horizontal" action="<?php echo base_url() . 'admin/pengguna/hapus_pengguna?type=' . $type ?>" method="post" enctype="multipart/form-data">
+                    <form class="form-horizontal" action="<?php echo base_url() . 'admin/lainnya/delete_lainnya'?>" method="post" enctype="multipart/form-data">
                         <div class="modal-body">
-                            <input type="hidden" name="kode" value="<?php echo $id_fakultas; ?>" />
-                            <p>Apakah Anda yakin mau menghapus Fakultas <b><?php echo $nama_fakultas; ?></b> ?</p>
+                            <input type="hidden" name="id_lainnya" value="<?php echo $id_lainnya; ?>" />
+                            <p>Apakah Anda yakin mau menghapus <b><?php echo $nama_lainnya; ?></b> ?</p>
 
                         </div>
                         <div class="modal-footer">
@@ -260,41 +255,6 @@ $type = isset($_GET['type']) ? $_GET['type'] : null;
             </div>
         </div>
     <?php endforeach; ?>
-
-    <!--Modal Reset Password-->
-    <div class="modal fade" id="ModalResetPassword" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><span class="fa fa-close"></span></span></button>
-                    <h4 class="modal-title" id="myModalLabel">Reset Password</h4>
-                </div>
-
-                <div class="modal-body">
-
-                    <table>
-                        <tr>
-                            <th style="width:120px;">Username</th>
-                            <th>:</th>
-                            <th><?php echo $this->session->flashdata('uname'); ?></th>
-                        </tr>
-                        <tr>
-                            <th style="width:120px;">Password Baru</th>
-                            <th>:</th>
-                            <th><?php echo $this->session->flashdata('upass'); ?></th>
-                        </tr>
-                    </table>
-
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-
     <!-- jQuery 2.2.3 -->
     <script src="<?php echo base_url() . 'assets/plugins/jQuery/jquery-2.2.3.min.js' ?>"></script>
     <!-- Bootstrap 3.3.6 -->
@@ -329,7 +289,7 @@ $type = isset($_GET['type']) ? $_GET['type'] : null;
         <script type="text/javascript">
             $.toast({
                 heading: 'Success',
-                text: "Fakultas Berhasil disimpan ke database.",
+                text: "Data Berhasil disimpan ke database.",
                 showHideTransition: 'slide',
                 icon: 'success',
                 hideAfter: false,
@@ -341,7 +301,7 @@ $type = isset($_GET['type']) ? $_GET['type'] : null;
         <script type="text/javascript">
             $.toast({
                 heading: 'Info',
-                text: "Fakultas berhasil di update",
+                text: "Data berhasil di update",
                 showHideTransition: 'slide',
                 icon: 'info',
                 hideAfter: false,
@@ -353,17 +313,13 @@ $type = isset($_GET['type']) ? $_GET['type'] : null;
         <script type="text/javascript">
             $.toast({
                 heading: 'Success',
-                text: "Fakultas Berhasil dihapus.",
+                text: "Data Berhasil dihapus.",
                 showHideTransition: 'slide',
                 icon: 'success',
                 hideAfter: false,
                 position: 'bottom-right',
                 bgColor: '#7EC857'
             });
-        </script>
-    <?php elseif ($this->session->flashdata('msg') == 'show-modal') : ?>
-        <script type="text/javascript">
-            $('#ModalResetPassword').modal('show');
         </script>
     <?php else : ?>
 

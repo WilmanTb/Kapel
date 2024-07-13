@@ -4,7 +4,9 @@ class M_Detail_Fakultas extends CI_Model
 {
     function get_detail_fakultas($id)
     {
-        $result = $this->db->query("SELECT M.*, F.nama_fakultas, P.nama as nama_prodi FROM tbl_mahasiswa M INNER JOIN tbl_fakultas F ON F.id = M.id_fakultas INNER JOIN tbl_prodi P ON P.id = M.program_studi WHERE M.id_fakultas = '$id'");
+        $result = $this->db->query("SELECT M.*, F.nama_fakultas, P.nama as nama_prodi 
+        FROM tbl_mahasiswa M INNER JOIN tbl_fakultas F ON F.id = M.id_fakultas 
+        INNER JOIN tbl_prodi P ON P.id = M.program_studi WHERE M.id_fakultas = '$id'");
         return $result;
     }
 
