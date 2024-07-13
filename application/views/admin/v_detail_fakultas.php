@@ -38,7 +38,7 @@ $nama_fakultas = $query->row();
         ?>
         <?php
         $page = array(
-            "page" => "fakultas"
+            "page" => "master_data"
         );
         $this->load->view('admin/v_sidebar', $page);
         ?>

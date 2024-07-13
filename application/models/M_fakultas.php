@@ -22,4 +22,16 @@ class M_fakultas extends CI_Model
         $result = $this->db->query("UPDATE tbl_fakultas SET nama_fakultas = '$nama_fakultas', admin_fakultas = '$admin_fakultas' WHERE id = '$id_fakultas'");
         return $result;
     }
+
+    function add_anggota($id, $nama)
+    {
+        $result = $this->db->query("INSERT INTO tbl_keanggotaan (nama, id_lainnya) VALUES ('$nama', '$id')");
+        return $result;
+    }
+
+    function add_anggota_asrama($id, $id_mhs)
+    {
+        $result = $this->db->query("UPDATE tbl_mahasiswa SET lainnya = '$id' WHERE id = '$id_mhs'");
+        return $result;
+    }
 }
