@@ -56,7 +56,8 @@ class Detail_Lainnya extends CI_Controller
         $id_anggota = $this->input->post('id_anggota');
         $id_lainnya = $this->input->post('id_lainnya');
         $nama_anggota = $this->input->post('nama_anggota');
-        echo $this->m_detail_lainnya->delete_anggota($id_lainnya, $id_anggota, $nama_anggota);
+        $this->m_detail_lainnya->delete_anggota($id_lainnya, $id_anggota, $nama_anggota);
+        echo $this->session->set_flashdata('msg', 'success-hapus');
         redirect($this->view_url."?id=".$id_lainnya);
     }
 }
