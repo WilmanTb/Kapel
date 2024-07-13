@@ -50,15 +50,6 @@ $jum_pesan = $query->num_rows();
         </ul>
       </li>
 
-      <li id="m_petugas_misa">
-        <a href="<?php echo base_url() . 'admin/lingkungan' ?>">
-          <i i class="fa fa-user"></i> <span>Petugas Misa</span>
-          <span class="pull-right-container">
-            <small class="label pull-right"></small>
-          </span>
-        </a>
-      </li>
-
       <li class="treeview" id="m_jadwal">
         <a href="#">
           <i class="fa fa-book"></i>
@@ -71,6 +62,15 @@ $jum_pesan = $query->num_rows();
           <li><a href="<?php echo base_url() . 'admin/jadwalibadah' ?>"><i class="fa fa-plus"></i> Misa </a></li>
           <li><a href="<?php echo base_url() . 'admin/jadwalpetugas' ?>"><i class="fa fa-list"></i> Lainnya</a></li>
         </ul>
+      </li>
+
+      <li id="m_petugas_misa">
+        <a href="<?php echo base_url() . 'admin/lingkungan' ?>">
+          <i i class="fa fa-user"></i> <span>Petugas Misa</span>
+          <span class="pull-right-container">
+            <small class="label pull-right"></small>
+          </span>
+        </a>
       </li>
 
       <li id="m_pengumuman">
