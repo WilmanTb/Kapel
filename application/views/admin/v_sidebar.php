@@ -50,7 +50,7 @@ $jum_pesan = $query->num_rows();
         </ul>
       </li>
 
-      <li class="treeview" id="m_jadwal">
+      <li class="treeview <?php echo $page == 'jadwal' ? 'active' : ''; ?>" id="m_jadwal">
         <a href="#">
           <i class="fa fa-book"></i>
           <span>Jadwal</span>
@@ -59,12 +59,12 @@ $jum_pesan = $query->num_rows();
           </span>
         </a>
         <ul class="treeview-menu">
-          <li><a href="<?php echo base_url() . 'admin/jadwalibadah' ?>"><i class="fa fa-plus"></i> Misa </a></li>
-          <li><a href="<?php echo base_url() . 'admin/jadwalpetugas' ?>"><i class="fa fa-list"></i> Lainnya</a></li>
+          <li><a href="<?php echo base_url() . 'admin/jadwal_misa' ?>"><i class="fa fa-plus"></i> Misa </a></li>
+          <li><a href="<?php echo base_url() . 'admin/jadwal_lainnya' ?>"><i class="fa fa-list"></i> Lainnya</a></li>
         </ul>
       </li>
 
-      <li id="m_petugas_misa">
+      <li class="<?php echo $page == 'petugas' ? 'active' : ''; ?>" id="m_petugas_misa">
         <a href="<?php echo base_url() . 'admin/lingkungan' ?>">
           <i i class="fa fa-user"></i> <span>Petugas Misa</span>
           <span class="pull-right-container">
@@ -73,7 +73,7 @@ $jum_pesan = $query->num_rows();
         </a>
       </li>
 
-      <li id="m_pengumuman">
+      <li class="<?php echo $page == 'pengumuman' ? 'active' : ''; ?>" id="m_pengumuman">
         <a href="<?php echo base_url() . 'admin/pengumuman' ?>">
           <i class="fa fa-volume-up"></i> <span>Pengumuman</span>
           <span class="pull-right-container">
@@ -82,7 +82,7 @@ $jum_pesan = $query->num_rows();
         </a>
       </li>
 
-      <li id="m_agenda">
+      <li <?php echo $page == 'agenda' ? 'active' : ''; ?> id="m_agenda">
         <a href="<?php echo base_url() . 'admin/agenda' ?>">
           <i class="fa fa-calendar"></i> <span>Agenda</span>
           <span class="pull-right-container">
@@ -91,7 +91,7 @@ $jum_pesan = $query->num_rows();
         </a>
       </li>
 
-      <li id="m_gallery">
+      <li <?php echo $page == 'gallery' ? 'active' : ''; ?> id="m_gallery">
         <a href="<?php echo base_url() . 'admin/agenda' ?>">
           <i class="fa fa-camera"></i> <span>Gallery</span>
           <span class="pull-right-container">
@@ -100,7 +100,7 @@ $jum_pesan = $query->num_rows();
         </a>
       </li>
 
-      <li class="treeview" id="m_cetak">
+      <li class="treeview <?php echo $page == 'cetak' ? 'active' : ''; ?>" id="m_cetak">
         <a href="#">
           <i class="fa fa-print"></i>
           <span>Cetak</span>
@@ -113,7 +113,7 @@ $jum_pesan = $query->num_rows();
         </ul>
       </li>
 
-      <li id="m_inbox">
+      <li class=" <?php echo $page == 'inbox' ? 'active' : ''; ?>" id="m_inbox">
         <a href="<?php echo base_url() . 'admin/inbox' ?>">
           <i class="fa fa-envelope"></i> <span>Inbox</span>
           <span class="pull-right-container">
@@ -122,7 +122,7 @@ $jum_pesan = $query->num_rows();
         </a>
       </li>
 
-      <li id="m_komentar">
+      <li class="<?php echo $page == 'komentar' ? 'active' : ''; ?>" id="m_komentar">
         <a href="<?php echo base_url() . 'admin/komentar' ?>">
           <i class="fa fa-comments"></i> <span>Komentar</span>
           <span class="pull-right-container">
