@@ -65,8 +65,8 @@ $jum_pesan = $query->num_rows();
       </li>
 
       <li class="<?php echo $page == 'petugas' ? 'active' : ''; ?>" id="m_petugas_misa">
-        <a href="<?php echo base_url() . 'admin/lingkungan' ?>">
-          <i i class="fa fa-user"></i> <span>Petugas Misa</span>
+        <a href="<?php echo base_url() . 'admin/petugas' ?>">
+          <i i class="fa fa-user"></i> <span>Petugas</span>
           <span class="pull-right-container">
             <small class="label pull-right"></small>
           </span>
