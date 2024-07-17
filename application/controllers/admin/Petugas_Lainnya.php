@@ -31,7 +31,7 @@ class Petugas_Lainnya extends CI_Controller
     {
         $petugas = "";
         $is_fakultas="";
-        $is_misa = "1";
+        $is_misa = "0";
         $jadwal_misa = $this->input->post('jadwal_ibadah_misa');
         $fakultas = $this->input->post('petugas_fakultas');
         $lainnya = $this->input->post('petugas_lainnya');
