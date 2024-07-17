@@ -1,7 +1,7 @@
 <?php
-class Petugas extends CI_Controller
+class Petugas_Lainnya extends CI_Controller
 {
-    private $view_url = 'admin/petugas';
+    private $view_url = 'admin/petugas_lainnya';
 
     function __construct()
     {
@@ -11,7 +11,7 @@ class Petugas extends CI_Controller
             redirect($url);
         };
 
-        $this->load->model('m_petugas');
+        $this->load->model('m_petugas_lainnya');
     }
 
     public function index()
@@ -19,12 +19,12 @@ class Petugas extends CI_Controller
         $kode = $this->session->userdata('idadmin');
         $id = $this->input->get('id');
 
-        $x['data'] = $this->m_petugas->get_all_data();
-        $x['jadwal'] = $this->m_petugas->get_all_jadwal_misa();
-        $x['fakultas'] = $this->m_petugas->get_all_fakultas();
-        $x['lainnya'] = $this->m_petugas->get_all_lainnya();
+        $x['data'] = $this->m_petugas_lainnya->get_all_data();
+        $x['jadwal'] = $this->m_petugas_lainnya->get_all_jadwal_misa();
+        $x['fakultas'] = $this->m_petugas_lainnya->get_all_fakultas();
+        $x['lainnya'] = $this->m_petugas_lainnya->get_all_lainnya();
 
-        $this->load->view('admin/v_petugas', $x);
+        $this->load->view('admin/v_petugas_lainnya', $x);
     }
 
     public function set_petugas()
@@ -45,7 +45,7 @@ class Petugas extends CI_Controller
             $is_fakultas = "0";
         }
 
-        $this->m_petugas->set_petugas($jadwal_misa, $petugas, $is_fakultas, $is_misa);
+        $this->m_petugas_lainnya->set_petugas($jadwal_misa, $petugas, $is_fakultas, $is_misa);
         echo $this->session->set_flashdata("msg","success");
         redirect($this->view_url);
     }
@@ -54,7 +54,7 @@ class Petugas extends CI_Controller
     {
         $petugas = "";
         $is_fakultas="";
-        $is_misa = "1";
+        $is_misa = "0";
         $id_jadwal_petugas = $this->input->post('id_jadwal_petugas');
         $fakultas = $this->input->post('petugas_fakultas1');
         $lainnya = $this->input->post('petugas_lainnya1');
@@ -69,7 +69,7 @@ class Petugas extends CI_Controller
         }
 
         
-        $this->m_petugas->edit_petugas($id_jadwal_petugas, $petugas, $is_fakultas, $is_misa);
+        $this->m_petugas_lainnya->edit_petugas($id_jadwal_petugas, $petugas, $is_fakultas, $is_misa);
         echo $this->session->set_flashdata("msg","edit");
         redirect($this->view_url);
     }
@@ -79,7 +79,7 @@ class Petugas extends CI_Controller
         $id = $this->input->post('id_jadwal_petugas');
         $id_kegiatan = $this->input->post('id_kegiatan');
 
-        $this->m_petugas->delete_petugas($id, $id_kegiatan);
+        $this->m_petugas_lainnya->delete_petugas($id, $id_kegiatan);
         echo $this->session->set_flashdata("msg","success-hapus");
         redirect($this->view_url);
     }

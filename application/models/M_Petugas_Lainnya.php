@@ -1,18 +1,18 @@
 <?php
-class M_Petugas extends CI_Model
+class M_Petugas_Lainnya extends CI_Model
 {
     function get_all_data()
     {
         $result = $this->db->query("SELECT 
         p.*,
         CASE 
-            WHEN p.is_misa = 1 THEN m.nama_ibadah
+            WHEN p.is_misa = 0 THEN m.nama_ibadah
         END AS nama_ibadah,
         CASE 
-            WHEN p.is_misa = 1 THEN m.tanggal_ibadah
+            WHEN p.is_misa = 0 THEN m.tanggal_ibadah
         END AS tanggal_ibadah,
         CASE 
-            WHEN p.is_misa = 1 THEN m.waktu_ibadah
+            WHEN p.is_misa = 0 THEN m.waktu_ibadah
         END AS waktu_ibadah,
         CASE 
             WHEN p.is_fakultas = 1 THEN f.nama_fakultas
@@ -21,7 +21,7 @@ class M_Petugas extends CI_Model
     FROM 
         tbl_petugas_misa p
     LEFT JOIN 
-        tbl_misa m ON p.id_kegiatan = m.id AND p.is_misa = 1 AND m.tanggal_ibadah > CURDATE()
+        tbl_jadwal_lainnya m ON p.id_kegiatan = m.id AND p.is_misa = 0 AND m.tanggal_ibadah > CURDATE()
     LEFT JOIN
         tbl_fakultas f ON p.id_petugas = f.id AND p.is_fakultas = 1
     LEFT JOIN
@@ -34,16 +34,9 @@ class M_Petugas extends CI_Model
 
     function get_all_jadwal_misa()
     {
-        $query_misa = $this->db->query("SELECT * FROM tbl_misa WHERE tanggal_ibadah > CURDATE()");
+        $query_misa = $this->db->query("SELECT * FROM tbl_jadwal_lainnya WHERE tanggal_ibadah > CURDATE()");
         $result_misa = $query_misa->result_array();
         return $result_misa;
-    }
-
-    function get_all_jadwal_lainnya()
-    {
-        $query_lainnya = $this->db->query("SELECT * FROM tbl_jadwal_lainnya WHERE tanggal_ibadah > CURDATE()");
-        $result_lainnya = $query_lainnya->result_array();
-        return $result_lainnya;
     }
 
     function get_all_fakultas()
@@ -65,7 +58,7 @@ class M_Petugas extends CI_Model
         
         if($result)
         {
-            $update = $this->db->query("UPDATE tbl_misa SET is_set = '1' WHERE id = '$ibadah'");
+            $update = $this->db->query("UPDATE tbl_jadwal_lainnya SET is_set = '1' WHERE id = '$ibadah'");
             return $update;
         }
     }
@@ -78,7 +71,7 @@ class M_Petugas extends CI_Model
 
     function delete_petugas($id, $id_kegiatan)
     {
-        $update = $this->db->query("UPDATE tbl_misa SET is_set = '0' WHERE id = '$id_kegiatan'");
+        $update = $this->db->query("UPDATE tbl_jadwal_lainnya SET is_set = '0' WHERE id = '$id_kegiatan'");
 
         if($update)
         {

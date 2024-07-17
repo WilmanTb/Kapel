@@ -64,13 +64,18 @@ $jum_pesan = $query->num_rows();
         </ul>
       </li>
 
-      <li class="<?php echo $page == 'petugas' ? 'active' : ''; ?>" id="m_petugas_misa">
-        <a href="<?php echo base_url() . 'admin/petugas' ?>">
-          <i i class="fa fa-user"></i> <span>Petugas</span>
+      <li class="treeview <?php echo $page == 'petugas' ? 'active' : ''; ?>" id="m_petugas">
+        <a href="#">
+          <i class="fa fa-book"></i>
+          <span>Petugas</span>
           <span class="pull-right-container">
-            <small class="label pull-right"></small>
+            <i class="fa fa-angle-left pull-right"></i>
           </span>
         </a>
+        <ul class="treeview-menu">
+          <li><a href="<?php echo base_url() . 'admin/petugas' ?>"><i class="fa fa-plus"></i> Misa </a></li>
+          <li><a href="<?php echo base_url() . 'admin/petugas_lainnya' ?>"><i class="fa fa-list"></i> Lainnya</a></li>
+        </ul>
       </li>
 
       <li class="<?php echo $page == 'pengumuman' ? 'active' : ''; ?>" id="m_pengumuman">

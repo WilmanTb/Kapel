@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Petugas Misa</title>
+    <title>Petugas Lainnya</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <link rel="shorcut icon" type="text/css" href="<?php echo base_url() . 'theme/images/UNIKA1.png' ?>">
@@ -45,12 +45,12 @@
             <!-- Content Header (Page header) -->
             <section class="content-header">
                 <h1>
-                    Petugas Misa
+                    Petugas Lainnya
                     <small></small>
                 </h1>
                 <ol class="breadcrumb">
                     <li><a href="#"><i class="fa fa-dashboard"></i> Petugas</a></li>
-                    <li class="active"> Misa</li>
+                    <li class="active"> Lainnya</li>
                 </ol>
             </section>
 
@@ -140,10 +140,10 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><span class="fa fa-close"></span></span></button>
                     <h4 class="modal-title" id="myModalLabel">Set Petugas</h4>
                 </div>
-                <form class="form-horizontal" action="<?php echo base_url() . 'admin/petugas/set_petugas' ?>" method="post" enctype="multipart/form-data">
+                <form class="form-horizontal" action="<?php echo base_url() . 'admin/petugas_lainnya/set_petugas' ?>" method="post" enctype="multipart/form-data">
                     <div class="modal-body">
                         <div class="form-group">
-                            <label for="inputUserName" class="col-sm-4 control-label">Pilih Ibadah (Misa) </label>
+                            <label for="inputUserName" class="col-sm-4 control-label">Pilih Ibadah (Lainnya) </label>
                             <div class="col-sm-7">
                                 <select class="form-control" name="jadwal_ibadah_misa" required>
                                     <option value="">Pilih Ibadah</option>
@@ -211,11 +211,11 @@
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><span class="fa fa-close"></span></span></button>
                         <h4 class="modal-title" id="myModalLabel">Edit Ibadah</h4>
                     </div>
-                    <form class="form-horizontal" action="<?php echo base_url() . 'admin/petugas/edit_petugas' ?>" method="post" enctype="multipart/form-data">
+                    <form class="form-horizontal" action="<?php echo base_url() . 'admin/petugas_lainnya/edit_petugas' ?>" method="post" enctype="multipart/form-data">
                         <div class="modal-body">
                             <input type="hidden" name="id_jadwal_petugas" value="<?php echo $id; ?>" />
                             <div class="form-group">
-                                <label for="inputUserName" class="col-sm-4 control-label">Pilih Ibadah (Misa) </label>
+                                <label for="inputUserName" class="col-sm-4 control-label">Pilih Ibadah (Lainnya) </label>
                                 <div class="col-sm-7">
                                     <select class="form-control" name="jadwal_ibadah_misa" required disabled>
                                         <option value="">Pilih Ibadah</option>
@@ -300,7 +300,7 @@
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><span class="fa fa-close"></span></span></button>
                         <h4 class="modal-title" id="myModalLabel">Hapus Petugas Ibadah</h4>
                     </div>
-                    <form class="form-horizontal" action="<?php echo base_url() . 'admin/petugas/delete_petugas' ?>" method="post" enctype="multipart/form-data">
+                    <form class="form-horizontal" action="<?php echo base_url() . 'admin/petugas_lainnya/delete_petugas' ?>" method="post" enctype="multipart/form-data">
                         <div class="modal-body">
                             <input type="hidden" name="id_jadwal_petugas" value="<?php echo $id; ?>" />
                             <input type="hidden" name="id_petugas" value="<?php echo $id_petugas; ?>" />
