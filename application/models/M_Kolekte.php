@@ -1,6 +1,6 @@
 <?php
 
-class M_Hadir extends CI_Model
+class M_Kolekte extends CI_Model
 {
     function get_all_data()
     {
@@ -15,7 +15,7 @@ class M_Hadir extends CI_Model
             ELSE k.tanggal_ibadah
         END AS tanggal_ibadah
     FROM 
-        tbl_hadir p
+        tbl_kolekte p
     LEFT JOIN 
         tbl_misa m ON p.id_kegiatan = m.id AND p.is_misa = 1 AND m.tanggal_ibadah <= CURDATE()
     LEFT JOIN 
@@ -40,7 +40,7 @@ class M_Hadir extends CI_Model
         return $result;
     }
 
-    function set_kehadiran($id_kegiatan, $jlh_laki, $jlh_perempuan, $nama_ibadah)
+    function add_kolekte($id_kegiatan, $jlh_kolekte, $nama_ibadah)
     {
         $is_misa = "";
         $query = $this->db->query("SELECT*FROM tbl_misa WHERE id = '$id_kegiatan' AND nama_ibadah LIKE '%$nama_ibadah%'");
@@ -52,21 +52,27 @@ class M_Hadir extends CI_Model
             $is_misa = "0";
         }
 
-        $result = $this->db->query("INSERT INTO tbl_hadir (id_kegiatan, jlh_pria, jlh_wanita, is_misa)
-                  VALUES ('$id_kegiatan', '$jlh_laki', '$jlh_perempuan', '$is_misa')");
+        $result = $this->db->query("INSERT INTO tbl_kolekte (id_kegiatan, jlh_kolekte, is_misa)
+                  VALUES ('$id_kegiatan', '$jlh_kolekte', '$is_misa')");
 
         return $result;   
     }
 
-    function edit_kehadiran($id, $jlh_pria, $jlh_wanita)
+    function edit_kolekte($id_kegiatan, $jlh_kolekte)
     {
-        $result = $this->db->query("UPDATE tbl_hadir SET jlh_pria = '$jlh_pria', jlh_wanita = '$jlh_wanita' WHERE id = '$id'");
+        $result = $this->db->query("UPDATE tbl_kolekte SET jlh_kolekte = '$jlh_kolekte' WHERE id = '$id_kegiatan'");
         return $result;
     }
 
-    function delete_kehadiran($id)
+    function delete_kolekte($id)
     {
-        $result = $this->db->query("DELETE FROM tbl_hadir WHERE id = '$id'");
+        $result = $this->db->query("DELETE FROM tbl_kolekte WHERE id = '$id'");
         return $result;
+    }
+
+    function sum_kolekte()
+    {
+        $result = $this->db->query("SELECT SUM(jlh_kolekte) AS total_kolekte FROM tbl_kolekte;");
+        return $result->row()->total_kolekte;
     }
 }

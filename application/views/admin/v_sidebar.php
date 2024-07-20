@@ -114,8 +114,8 @@ $jum_pesan = $query->num_rows();
         </a>
       </li>
 
-      <li <?php echo $page == 'cetak' ? 'active' : ''; ?> id="m_gallery">
-        <a href="<?php echo base_url() . 'admin/galeri' ?>">
+      <li <?php echo $page == 'kolekte' ? 'active' : ''; ?> id="m_gallery">
+        <a href="<?php echo base_url() . 'admin/kolekte' ?>">
           <i class="fa fa-dollar"></i> <span> Data Kolekte</span>
           <span class="pull-right-container">
             <small class="label pull-right"></small>

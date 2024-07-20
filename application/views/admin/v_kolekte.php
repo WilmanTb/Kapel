@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Data Kehadiran</title>
+    <title>Data Kolekte</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <link rel="shorcut icon" type="text/css" href="<?php echo base_url() . 'theme/images/UNIKA1.png' ?>">
@@ -36,7 +36,7 @@
         ?>
         <?php
         $page = array(
-            "page" => "hadir"
+            "page" => "kolekte"
         );
         $this->load->view('admin/v_sidebar', $page);
         ?>
@@ -45,12 +45,12 @@
             <!-- Content Header (Page header) -->
             <section class="content-header">
                 <h1>
-                    Data Kehadiran
+                    Data Kolekte
                     <small></small>
                 </h1>
                 <ol class="breadcrumb">
                     <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                    <li class="active"> Jadwal Hadir</li>
+                    <li class="active"> Data Kolekte</li>
                 </ol>
             </section>
 
@@ -62,7 +62,8 @@
 
                             <div class="box">
                                 <div class="box-header">
-                                    <a class="btn btn-success btn-flat" data-toggle="modal" data-target="#myModal"><span class="fa fa-plus"></span> Add Data</a>
+                                    <ul class="pull-right"><a href="<?php echo base_url('admin/kolekte/cetak_data_kolekte'); ?>" class="btn btn-primary" style="background-color: ; color: white;"><span class="glyphicon glyphicon-save fa fa-print"></span> Print </a>
+                                        <a class="btn btn-success btn-flat" data-toggle="modal" data-target="#myModal"><span class="fa fa-plus"></span> Add Data</a>
                                 </div>
                                 <!-- /.box-header -->
                                 <div class="box-body">
@@ -72,9 +73,7 @@
                                                 <th style="width:70px;">No</th>
                                                 <th>Nama Ibadah</th>
                                                 <th>Tanggal Ibadah</th>
-                                                <th>Laki - laki</th>
-                                                <th>Perempuan</th>
-                                                <th>Total</th>
+                                                <th>Jumlah Kolekte</th>
                                                 <th style="text-align:right;">Aksi</th>
                                             </tr>
                                         </thead>
@@ -86,10 +85,9 @@
                                                 $id_ibadah = $i['id'];
                                                 $nama_ibadah = $i['nama_ibadah'];
                                                 $tanggal = $i['tanggal_ibadah'];
-                                                $jlh_pria = $i["jlh_pria"];
-                                                $jlh_wanita = $i["jlh_wanita"];
-                                                $total = $jlh_pria + $jlh_wanita;
                                                 $tanggal_ibadah = date('d F Y', strtotime($tanggal));
+                                                $jlh_kolekte = $i["jlh_kolekte"];
+                                                $formattedNumber = number_format($jlh_kolekte, 2, '.', ',');
 
                                                 $daftar_hari = array(
                                                     'Sunday' => 'Minggu',
@@ -108,9 +106,7 @@
                                                     <td><?php echo $no; ?></td>
                                                     <td><?php echo $nama_ibadah; ?></td>
                                                     <td><?php echo $daftar_hari[$hari] . ', ' . $tanggal_ibadah; ?></td>
-                                                    <td><?php echo $jlh_pria; ?> Orang</td>
-                                                    <td><?php echo $jlh_wanita; ?> Orang</td>
-                                                    <td><?php echo $total; ?> Orang</td>
+                                                    <td>Rp <?php echo $formattedNumber; ?></td>
                                                     <td style="text-align:right;">
                                                         <a class="btn" data-toggle="modal" data-target="#ModalEdit<?php echo $id_ibadah; ?>"><span class="fa fa-pencil"></span></a>
                                                         <a class="btn" data-toggle="modal" data-target="#ModalHapus<?php echo $id_ibadah; ?>"><span class="fa fa-trash"></span></a>
@@ -146,13 +142,13 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><span class="fa fa-close"></span></span></button>
                     <h4 class="modal-title" id="myModalLabel">Set Petugas</h4>
                 </div>
-                <form class="form-horizontal" action="<?php echo base_url() . 'admin/hadir/set_kehadiran' ?>" method="post" enctype="multipart/form-data">
+                <form class="form-horizontal" action="<?php echo base_url() . 'admin/kolekte/add_kolekte' ?>" method="post" enctype="multipart/form-data">
                     <div class="modal-body">
 
                         <div class="form-group">
                             <label for="inputUserName" class="col-sm-4 control-label">Pilih Ibadah</label>
                             <div class="col-sm-7">
-                                <select class="form-control" name="id_kehadiran" required onchange="setHiddenInput(this)">
+                                <select class="form-control" name="id_kegiatan" required onchange="setHiddenInput(this)">
                                     <option value="">Pilih Ibadah</option>
                                     <?php foreach ($jadwal as $item) : ?>
                                         <option value="<?php echo $item['id']; ?>" data-nama="<?php echo $item['nama_ibadah']; ?>"><?php echo $item['nama_ibadah']; ?></option>
@@ -163,16 +159,9 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="inputUserName" class="col-sm-4 control-label">Jumlah Laki - laki</label>
+                            <label for="inputUserName" class="col-sm-4 control-label">Jumlah Kolekte</label>
                             <div class="col-sm-7">
-                                <input type="text" name="jlh_laki" class="form-control" id="inputUserName" placeholder="Laki - laki" required>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="inputUserName" class="col-sm-4 control-label">Jumlah Perempuan</label>
-                            <div class="col-sm-7">
-                                <input type="text" name="jlh_perempuan" class="form-control" id="inputUserName" placeholder="Perempuan" required>
+                                <input type="text" name="jlh_kolekte" class="form-control" id="inputUserName" placeholder="Kolekte" required>
                             </div>
                         </div>
 
@@ -194,8 +183,7 @@
         $tanggal_ibadah = date('d F Y', strtotime($tanggal));
         $waktu_ibadah = $i['waktu_ibadah'];
         $keterangan = $i['keterangan'];
-        $jlh_pria = $i["jlh_pria"];
-        $jlh_wanita = $i["jlh_wanita"];
+        $jlh_kolekte = $i["jlh_kolekte"];
     ?>
         <!--Modal Edit Pengguna-->
         <div class="modal fade" id="ModalEdit<?php echo $id_ibadah; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -205,8 +193,9 @@
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><span class="fa fa-close"></span></span></button>
                         <h4 class="modal-title" id="myModalLabel">Edit Ibadah</h4>
                     </div>
-                    <form class="form-horizontal" action="<?php echo base_url() . 'admin/hadir/edit_kehadiran' ?>" method="post" enctype="multipart/form-data">
+                    <form class="form-horizontal" action="<?php echo base_url() . 'admin/kolekte/edit_kolekte' ?>" method="post" enctype="multipart/form-data">
                         <div class="modal-body">
+
                             <input type="hidden" name="id_kegiatan" value="<?php echo $id_ibadah; ?>" />
                             <div class="form-group">
                                 <label for="inputUserName" class="col-sm-4 control-label">Nama ibadah</label>
@@ -216,18 +205,12 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="inputUserName" class="col-sm-4 control-label">Jumlah Laki - laki</label>
+                                <label for="inputUserName" class="col-sm-4 control-label">Jumlah Kolekte</label>
                                 <div class="col-sm-7">
-                                    <input type="text" name="jlh_pria" class="form-control" id="inputUserName" value="<?php echo $jlh_pria ?>" placeholder="Laki - laki" required>
+                                    <input type="text" name="jlh_kolekte" class="form-control" id="inputUserName" value="<?php echo $jlh_kolekte ?>" placeholder="Laki - laki" required>
                                 </div>
                             </div>
 
-                            <div class="form-group">
-                                <label for="inputUserName" class="col-sm-4 control-label">Jumlah Perempuan</label>
-                                <div class="col-sm-7">
-                                    <input type="text" name="jlh_wanita" class="form-control" id="inputUserName" value="<?php echo $jlh_wanita ?>" placeholder="Perempuan" required>
-                                </div>
-                            </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default btn-flat" data-dismiss="modal">Close</button>
@@ -250,12 +233,12 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><span class="fa fa-close"></span></span></button>
-                        <h4 class="modal-title" id="myModalLabel">Hapus Data Kehadiran</h4>
+                        <h4 class="modal-title" id="myModalLabel">Hapus Data Kolekte</h4>
                     </div>
-                    <form class="form-horizontal" action="<?php echo base_url() . 'admin/hadir/delete_kehadiran' ?>" method="post" enctype="multipart/form-data">
+                    <form class="form-horizontal" action="<?php echo base_url() . 'admin/kolekte/delete_kolekte' ?>" method="post" enctype="multipart/form-data">
                         <div class="modal-body">
                             <input type="hidden" name="id_kehadiran" value="<?php echo $id_ibadah; ?>" />
-                            <p>Apakah Anda yakin mau menghapus data Kehadiran : <b><?php echo $nama_ibadah; ?></b> ?</p>
+                            <p>Apakah Anda yakin mau menghapus data kolekte : <b><?php echo $nama_ibadah; ?></b> ?</p>
 
                         </div>
                         <div class="modal-footer">
@@ -349,7 +332,7 @@
         <script type="text/javascript">
             $.toast({
                 heading: 'Success',
-                text: "Data Kehadiran Berhasil disimpan ke database.",
+                text: "Data Kolekte Berhasil disimpan ke database.",
                 showHideTransition: 'slide',
                 icon: 'success',
                 hideAfter: false,
@@ -361,7 +344,7 @@
         <script type="text/javascript">
             $.toast({
                 heading: 'Info',
-                text: "Data Kehadiran berhasil di update",
+                text: "Data Kolekte berhasil di update",
                 showHideTransition: 'slide',
                 icon: 'info',
                 hideAfter: false,
@@ -373,7 +356,7 @@
         <script type="text/javascript">
             $.toast({
                 heading: 'Success',
-                text: "Data Kehadiran Berhasil dihapus.",
+                text: "Data Kolekte Berhasil dihapus.",
                 showHideTransition: 'slide',
                 icon: 'success',
                 hideAfter: false,
