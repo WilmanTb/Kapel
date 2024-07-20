@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>HKBP II - Log in</title>
+  <title>Kapel - Log in</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <link rel="shorcut icon" type="text/css" href="<?php echo base_url().'theme/images/HKBP2.png'?>">
+  <link rel="shorcut icon" type="text/css" href="<?php echo base_url().'theme/images/UNIKA1.png'?>">
   <!-- Bootstrap 3.3.6 -->
   <link rel="stylesheet" href="<?php echo base_url().'assets/bootstrap/css/bootstrap.min.css'?>">
   <!-- Font Awesome -->
@@ -18,18 +18,16 @@
 
 
 </head>
-<body class="hold-transition login-page" style="background-image: url('theme/images/e.gif'); background-size:cover;
-;
-         background-position:center; background-attachment: fixed; ">
+<body class="hold-transition login-page">
 <div class="login-box">
   <div>
    <p><?php echo $this->session->flashdata('msg');?></p>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
-    <p class="login-box-msg"> <img width="140px;" src="<?php echo base_url().'theme/images/HKBP.png'?>"></p>
+    <p class="login-box-msg"> <img width="140px;" src="<?php echo base_url().'theme/images/UNIKA1.png'?>"></p>
     <p style="text-align: center; font-family: Gill Sans; font-size: 30px;"><b>LOGIN</b></p>
-    <p style="text-align: center; font-family: verdata;">HKBP Resort Sidikalang II</p><hr/>
+    <p style="text-align: center; font-family: verdata;">Admin Kapel Universitas Katolik St. Thomas</p><hr/>
 
     <form action="<?php echo site_url().'admin/login/auth'?>" method="post">
       <div class="form-group has-feedback">
@@ -62,7 +60,7 @@
 
     <!-- /.social-auth-links -->
     <hr/>
-    <p><center>Copyright <?php echo date('Y');?> by Steffanny Putri <br/> All Right Reserved</center></p>
+    <p><center>Copyright <?php echo date('Y');?> by Renata Livia Sitanggang <br/> All Right Reserved</center></p>
   </div>
   <!-- /.login-box-body -->
 </div>
