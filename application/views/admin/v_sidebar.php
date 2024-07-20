@@ -96,7 +96,7 @@ $jum_pesan = $query->num_rows();
         </a>
       </li>
 
-      <li <?php echo $page == 'gallery' ? 'active' : ''; ?> id="m_gallery">
+      <li <?php echo $page == 'galeri' ? 'active' : ''; ?> id="m_gallery">
         <a href="<?php echo base_url() . 'admin/galeri' ?>">
           <i class="fa fa-camera"></i> <span>Gallery</span>
           <span class="pull-right-container">
