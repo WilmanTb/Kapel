@@ -97,25 +97,30 @@ $jum_pesan = $query->num_rows();
       </li>
 
       <li <?php echo $page == 'gallery' ? 'active' : ''; ?> id="m_gallery">
-        <a href="<?php echo base_url() . 'admin/agenda' ?>">
+        <a href="<?php echo base_url() . 'admin/galeri' ?>">
           <i class="fa fa-camera"></i> <span>Gallery</span>
           <span class="pull-right-container">
             <small class="label pull-right"></small>
           </span>
         </a>
       </li>
-
-      <li class="treeview <?php echo $page == 'cetak' ? 'active' : ''; ?>" id="m_cetak">
-        <a href="#">
-          <i class="fa fa-print"></i>
-          <span>Cetak</span>
+      
+      <li <?php echo $page == 'hadir' ? 'active' : ''; ?> id="m_gallery">
+        <a href="<?php echo base_url() . 'admin/hadir' ?>">
+          <i class="fa fa-group"></i> <span> Jumlah Hadir</span>
           <span class="pull-right-container">
-            <i class="fa fa-angle-left pull-right"></i>
+            <small class="label pull-right"></small>
           </span>
         </a>
-        <ul class="treeview-menu">
-          <li><a href="<?php echo base_url() . 'admin/jadwalibadah' ?>"><i class="fa fa-dollar"></i> Data Kolekte </a></li>
-        </ul>
+      </li>
+
+      <li <?php echo $page == 'cetak' ? 'active' : ''; ?> id="m_gallery">
+        <a href="<?php echo base_url() . 'admin/galeri' ?>">
+          <i class="fa fa-dollar"></i> <span> Data Kolekte</span>
+          <span class="pull-right-container">
+            <small class="label pull-right"></small>
+          </span>
+        </a>
       </li>
 
       <li class=" <?php echo $page == 'inbox' ? 'active' : ''; ?>" id="m_inbox">
