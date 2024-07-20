@@ -50,7 +50,7 @@ class Hadir extends CI_Controller
         $id = $this->input->post('id_kehadiran');
 
         $this->m_hadir->delete_kehadiran($id);
-        echo $this->session->set_flashdata('msg', 'edit');
+        echo $this->session->set_flashdata('msg', 'success-hapus');
         redirect($this->view_url);
     }
 
