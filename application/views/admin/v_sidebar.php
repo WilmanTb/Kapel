@@ -32,7 +32,7 @@ $jum_pesan = $query->num_rows();
         </a>
         <ul class="treeview-menu">
           <li><a href="<?php echo base_url() . 'admin/pengguna?type=super_admin' ?>"><i class="fa fa-user-plus"></i> Super Admin</a></li>
-          <li><a href="<?php echo base_url() . 'admin/pengguna?type=admin_fakultas' ?>"><i class="fa fa-user-plus"></i> Admin Fakultas</a></li>
+          <li><a href="<?php echo base_url() . 'admin/pengguna?type=admin_fakultas' ?>"><i class="fa fa-user-plus"></i> Admin</a></li>
         </ul>
       </li>
 

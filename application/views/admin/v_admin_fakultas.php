@@ -11,7 +11,7 @@ $jum_pesan = $query->num_rows();
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Data Admin Fakultas</title>
+    <title>Data Admin</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <link rel="shorcut icon" type="text/css" href="<?php echo base_url() . 'theme/images/UNIKA1.png' ?>">
@@ -66,7 +66,7 @@ $jum_pesan = $query->num_rows();
 
                             <div class="box">
                                 <div class="box-header">
-                                    <a class="btn btn-success btn-flat" data-toggle="modal" data-target="#myModal"><span class="fa fa-user-plus"></span> Add Admin Fakultas</a>
+                                    <a class="btn btn-success btn-flat" data-toggle="modal" data-target="#myModal"><span class="fa fa-user-plus"></span> Add Admin</a>
                                 </div>
                                 <!-- /.box-header -->
                                 <div class="box-body">
@@ -93,7 +93,7 @@ $jum_pesan = $query->num_rows();
                                                     <td><img width="40" height="40" class="img-circle" src="<?php echo base_url() . 'assets/images/' . $pengguna_photo; ?>"></td>
                                                     <td><?php echo $nama; ?></td>
                                                     <td><?php echo $pengguna_email; ?></td>
-                                                    <td>Admin Fakultas</td>
+                                                    <td><?php echo $pengguna_level == '2' ? 'Admin Fakultas' : 'Admin Lainnnya'; ?></td>
 
                                                     <td style="text-align:right;">
                                                         <a class="btn" data-toggle="modal" data-target="#ModalEdit<?php echo $pengguna_id; ?>"><span class="fa fa-pencil"></span></a>
@@ -172,6 +172,7 @@ $jum_pesan = $query->num_rows();
                             <div class="col-sm-7">
                                 <select class="form-control" name="xlevel" required>
                                     <option value="2">Admin Fakultas</option>
+                                    <option value="3">Admin Lainnya</option>
                                 </select>
                             </div>
                         </div>
@@ -244,8 +245,10 @@ $jum_pesan = $query->num_rows();
                                 <label for="inputUserName" class="col-sm-4 control-label">Level</label>
                                 <div class="col-sm-7">
                                     <select class="form-control" name="xlevel" required>
-                                        <option value="2" selected>Admin Fakultas</option>
+                                        <option value="2" <?php echo $pengguna_level == '2' ? 'selected' : ''; ?>>Admin Fakultas</option>
+                                        <option value="3" <?php echo $pengguna_level == '3' ? 'selected' : ''; ?>>Admin Lainnya</option>
                                     </select>
+
                                 </div>
                             </div>
 
