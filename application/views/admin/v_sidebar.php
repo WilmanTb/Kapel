@@ -60,7 +60,10 @@ $jum_pesan = $query->num_rows();
         </a>
         <ul class="treeview-menu">
           <li><a href="<?php echo base_url() . 'admin/jadwal_misa' ?>"><i class="fa fa-plus"></i> Misa </a></li>
-          <li><a href="<?php echo base_url() . 'admin/jadwal_lainnya' ?>"><i class="fa fa-list"></i> Lainnya</a></li>
+          <li><a href="<?php echo base_url().'admin/renungan'?>"><i class="fa fa-list"></i> List Detail Ibadah</a></li>
+            <li><a href="<?php echo base_url().'admin/renungan/add_renungan'?>"><i class="fa fa-thumb-tack"></i> Post Detail Ibadah</a></li>
+            <li><a href="<?php echo base_url().'admin/kategori'?>"><i class="fa fa-tag"></i> Kategori</a></li>
+            <!-- <li><a href="<?php echo base_url().'admin/renungan/video'?>"><i class="fa fa-film"></i> Video Renungan</a></li> -->
         </ul>
       </li>
 

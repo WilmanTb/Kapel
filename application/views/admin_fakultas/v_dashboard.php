@@ -26,14 +26,14 @@ error_reporting(0);
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="<?php echo base_url() . 'assets/dist/css/skins/_all-skins.min.css' ?>">
   <?php
-  /* Mengambil query report*/
-  foreach ($visitor as $result) {
+/* Mengambil query report*/
+foreach ($visitor as $result) {
     $bulan[] = $result->tgl; //ambil bulan
     $value[] = (float) $result->jumlah; //ambil nilai
-  }
-  /* end mengambil query*/
+}
+/* end mengambil query*/
 
-  ?>
+?>
 
 </head>
 
@@ -42,25 +42,25 @@ error_reporting(0);
 
     <!--Header-->
     <?php
-    $this->load->view('admin_fakultas/v_header');
-    ?>
+$this->load->view('admin_fakultas/v_header');
+?>
 
     <?php
-    $page = array(
-      "page" => "dashboard"
-    );
-    $this->load->view('admin_fakultas/v_sidebar', $page);
-    ?>
+$page = array(
+    "page" => "dashboard",
+);
+$this->load->view('admin_fakultas/v_sidebar', $page);
+?>
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
       <!-- Content Header (Page header) -->
       <section class="content-header">
         <h1 style="text-align:left; font-family:square721 bt;">
-          <?php foreach ($fakultas->result_array() as $i) :
-            $nama_fakultas = $i['nama_fakultas'];
+          <?php foreach ($fakultas->result_array() as $i):
+    $nama_fakultas = $i['nama_fakultas'];
 
-          endforeach ?>
+endforeach?>
           <br><b>DASHBOARD ADMIN FAKULTAS <?php echo strtoupper($nama_fakultas) ?></b> <br>
           <small></small>
         </h1>
@@ -78,21 +78,20 @@ error_reporting(0);
             <div class="info-box">
               <span class="info-box-icon bg-aqua"><i class="fa fa-tasks"></i></span>
               <?php
-              $nama_ibadah = "";
-              $tanggal = "";
-              $jadwal = $visitor->result_array();
-              if (!empty($jadwal[0]->Ibadah)) {
-                echo "<script>console.log(".count($visitor->result_array()) .")</script>";
+$nama_ibadah = "";
+$tanggal = "";
+$jadwal = $visitor->result_array();
+if (!empty($jadwal[0]["Ibadah"])) {
 
-                foreach ($visitor->result_array() as $i) {
-                  $nama_ibadah = $i['Ibadah'];
-                  $tanggal = $i['Tanggal_Ibadah'];
-                  // You can add additional logic here if needed
-                }
-              } else {
-                $nama_ibadah = "Belum ada jadwal";
-              }
-              ?>
+    foreach ($visitor->result_array() as $i) {
+        $nama_ibadah = $i['Ibadah'];
+        $tanggal = $i['Tanggal_Ibadah'];
+        // You can add additional logic here if needed
+    }
+} else {
+    $nama_ibadah = "Belum ada jadwal";
+}
+?>
               <div class="info-box-content">
                 <span class="info-box-text">Jadwal Bertugas : </span>
                 <span class="info-box-number"><?php echo $nama_ibadah; ?></span>
@@ -111,8 +110,8 @@ error_reporting(0);
     </div>
 
     <?php
-    $this->load->view('admin_fakultas/v_footer');
-    ?>
+$this->load->view('admin_fakultas/v_footer');
+?>
 
   </div>
 

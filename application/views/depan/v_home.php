@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>HKBP II - Welcome to HKBP Resort Sidikalang II</title>
+    <title>Kapel</title>
         <link rel="shorcut icon" href="<?php echo base_url() . 'theme/images/UNIKA1.png' ?>">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="<?php echo base_url() . 'theme/css/bootstrap.min.css' ?>">
@@ -186,13 +186,14 @@ $this->load->view('depan/v_header');
             <div class="carousel-inner" role="listbox">
 
                 <div class="carousel-item active">
-                   <img class="d-block" src="<?php echo base_url() . 'theme/images/boho1.gif' ?>" style="height: 540px;" alt="First slide">
+                   <!-- <img class="d-block" src="<?php echo base_url() . 'theme/images/boho1.gif' ?>" style="height: 540px;" alt="First slide"> -->
+                   <img class="d-block" src="https://www.ust.ac.id/wp-content/uploads/2023/04/DSC07754-scaled.jpg" style="height: 540px;" alt="First slide">
                     <div class="carousel-caption d-md-block">
                         <div class="slider_title">
                             <div class="new">
                             </div>
-                            <h1 style="color: white; font-family:square721 bt; margin-bottom:10px;"><b>Selamat Datang di Website</b></h1>
-                            <h2 style="color: skyblue; font-family:square721 bt;margin-bottom:20px;"><b>HKBP Ressort Sidikalang II</b></h2>
+                            <h2 style="color: white; font-family:square721 bt; margin-bottom:10px;"><b>Selamat Datang di Website</b></h2>
+                            <h1 style="color: white; font-family:square721 bt;margin-bottom:20px;"><b>Universitas Katolik St. Thomas</b></h1>
                             <h5 style="font-family:Palatino Linotype; color: white"><b>Ibrani 11 : 1</b><br>
                             Iman adalah dasar dari segala sesuatu yang kita harapkan <br> dan bukti dari segala sesuatu yang tidak kita lihat</h5>
 
@@ -201,30 +202,32 @@ $this->load->view('depan/v_header');
                 </div>
 
                 <div class="carousel-item">
-                    <img class="d-block" src="<?php echo base_url() . 'theme/foto/parhalado.png' ?>" alt="Second slide" >
+                    <!-- <img class="d-block" src="<?php echo base_url() . 'theme/foto/parhalado.png' ?>" alt="Second slide" > -->
+                    <img class="d-block" src="https://pascasarjana.ust.ac.id/wp-content/uploads/2021/06/JADIKAN-UNIKA-MEDAN-JADI-WORLD-CLASS-UNIVERSITY.png" alt="Second slide" >
                     <div class="carousel-caption d-md-block">
                         <div class="slider_title">
                             <div class="new">
                             </div>
                             <h1></h1>
-                            <h2 style="font-family:Cooper;"><b>Parhalado</b></h2>
-                            <h5 style="font-family:Palatino Linotype;"><b>Korintus 15:58</b><br>
-                            Karena itu, saudara-saudaraku yang kekasih, berdirilah teguh,jangan goyah, dan giatlah selalu <br>dalam pekerjaan Tuhan! Sebab kamu tahu, bahwa dalam persekutuan dengan Tuhan jerih payahmu tidak sia-sia</h5>
+                            <h2 style="font-family:Cooper;"><b>Lorem Ipsum</b></h2>
+                            <h5 style="font-family:Palatino Linotype;"><b>Lorem Ipsumm</b><br>
+                            Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum</h5>
                         </div>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block" src="<?php echo base_url() . 'theme/foto/nh.png' ?>" alt="Third slide">
+                    <!-- <img class="d-block" src="<?php echo base_url() . 'theme/foto/nh.png' ?>" alt="Third slide"> -->
+                    <img class="d-block" src="https://asset-2.tstatic.net/medan/foto/bank/images/uskup-agung-medan-di-unika.jpg" alt="Third slide">
                     <div class="carousel-caption d-md-block">
                         <div class="slider_title">
                             <div class="new">
                             </div>
                             <h1></h1>
-                            <h2 style="font-family:Cooper;"><b>Naposo Bulung</b></h2>
+                            <h2 style="font-family:Cooper;"><b>Lorem Ipsum</b></h2>
                             <div class="new">
                             </div>
-                            <h5 style="font-family:Palatino Linotype;"><b>Amsal 16:3</b><br>
-                             Serahkanlah perbuatanmu kepada TUHAN, maka terlaksanalah segala rencanamu</h5>
+                            <h5 style="font-family:Palatino Linotype;"><b>Lorem Ipsum</b><br>
+                             Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum</h5>
                             </div>
                         </div>
                     </div>
@@ -262,8 +265,8 @@ $this->load->view('depan/v_header');
             <div class="col-md-8">
             <blockquote>
                 <h2 style="font-family: MV Boli; color: white;">Ayat Bulanan</h2>
-               Sebab Aku ini mengetahui rancangan-rancangan apa yang ada pada-Ku mengenai kamu,demikianlah firman Tuham yaitu rancangan damai sejahtera dan bukan rancangan kecelakaan, untuk memberikan kepadamu hari depan yang penuh harapan.
-               <br>(Yeremia 29:11)
+               TESTING TESTING TESTING
+               <br>(Kitab 10 : ayat)
            </blockquote>
             </div>
 
@@ -317,41 +320,46 @@ $keterangan = !empty($reminder) ? $reminder->ket : '';
                 <!--<h2 style="font-family: Gill Sans MT ;"> Jadwal Ibadah </h2> -->
                 <hr>
                 <br>
-                <h4 style="font-family: Gill Sans MT ; text-align: center;"><b> Jadwal Ibadah di Gereja HKBP Ressort Sidikalang II </b></h4><br>
+                <h4 style="font-family: Gill Sans MT ; text-align: center;"><b> Jadwal Misa Universitas Katolik St. Thomas </b></h4><br>
                 <div class="box-body">
               <table id="example1" class="table table-striped" style="font-size:13px;">
                 <thead>
                 <tr>
                     <th style="width:500px;text-align: center;"> Ibadah</th>
-                    <th style="width:300px;text-align: center;">Hari</th>
+                    <th style="width:300px;text-align: center;">Hari/Tanggal</th>
                     <th style="width:500px;text-align: center;">Keterangan</th>
                 </tr>
                 </thead>
                 <tbody>
                     <?php
-foreach ($jadwalibadah->result_array() as $i):
-    $jadwal_ibadah_id = $i['jadwal_ibadah_id'];
-    $nama_ibadah = $i['nama_ibadah'];
-    $ibadah_tanggal = $i['ibadah_tanggal'];
-    $ibadah_waktu = $i['ibadah_waktu'];
-    $ibadah_keterangan = $i['ibadah_keterangan'];
-    $tanggal = date('d F', strtotime($ibadah_tanggal));
-    $hari = date('l', strtotime($ibadah_tanggal));
+                    foreach ($jadwalibadah->result_array() as $i):
+                        $jadwal_ibadah_id = $i['id'];
+                        $nama_ibadah = $i['nama_ibadah'];
+                        $ibadah_tanggal = $i['tanggal_ibadah'];
+                        $ibadah_waktu = $i['tanggal_ibadah'];
+                        $ibadah_keterangan = $i['keterangan'];
+                        $tanggal = date('d F Y', strtotime($ibadah_tanggal));
+                        $hari = date('l', strtotime($ibadah_tanggal));
 
-    $daftar_hari = array(
-        'Sunday' => 'Minggu',
-        'Monday' => 'Senin',
-        'Tuesday' => 'Selasa',
-        'Wednesday' => 'Rabu',
-        'Thursday' => 'Kamis',
-        'Friday' => 'Jumat',
-        'Saturday' => 'Sabtu');
+                        $daftar_hari = array(
+                            'Sunday' => 'Minggu',
+                            'Monday' => 'Senin',
+                            'Tuesday' => 'Selasa',
+                            'Wednesday' => 'Rabu',
+                            'Thursday' => 'Kamis',
+                            'Friday' => 'Jumat',
+                            'Saturday' => 'Sabtu');
 
-    $namahari = date('l', strtotime($ibadah_tanggal));
+                        $namahari = date('l', strtotime($ibadah_tanggal));
 
-    ?>																																																																																																																																												                <?php
-endforeach;
-?>
+                        ?>
+                        <tr>
+                            <td style="text-align:center;"><?php echo $nama_ibadah ?></td>
+                            <td style="text-align:center;"><?php echo $ibadah_tanggal != "" ? $daftar_hari[$hari] . ', ' . $tanggal : ""; ?>
+                            <td style="text-align:center;"><?php echo $ibadah_keterangan ?></td>
+                        </tr>																																																																																																																																											                <?php
+                    endforeach;
+                    ?>
 
                 </tbody>
               </table>
@@ -362,83 +370,12 @@ endforeach;
 </section>
 <!--//END Jadwal Ibadah -->
 
-<!--============================= Jadwal Petugas =============================-->
-<section>
-    <div id='jadwal' class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <!--<h2 style="font-family: Gill Sans MT ;"> Jadwal Petugas </h2> -->
-                <hr>
-                <br>
-                <h4 style="font-family: Gill Sans MT ; text-align: center;"><b> Namanghobasi Parmingguon Umum </b></h4><br>
-                <div class="box-body">
-              <table id="example1" class="table table-striped" style="font-size:13px;">
-                <thead>
-                <tr>
-                    <th style="width:200px;text-align: center;"> PELAYAN </th>
-                    <th style="width:500px;text-align: center;"> Gelombang I <br>(Pkl.08.30-09.15 Wib)</th>
-                    <th style="width:300px;text-align: center;"> Gelombang II <br>(Pkl.10.00-11.15 Wib)</th>
-                    <th style="width:500px;text-align: center;"> Gelombang III <br>(Pkl.11.30-12.30 Wib)</th>
-                </tr>
-                </thead>
-                <tbody>
-                    <?php
-foreach ($jadwalpetugas->result_array() as $i):
-    $petugas = $i['petugas_id'];
-    $tanggal = $i['petugas_tgl'];
-    $tanggal_new = date('d F Y', strtotime($tanggal));
-    $jamita1 = $i['petugas_jamita1'];
-    $jamita2 = $i['petugas_jamita2'];
-    $jamita3 = $i['petugas_jamita3'];
-    $agenda1 = $i['petugas_agenda1'];
-    $agenda2 = $i['petugas_agenda2'];
-    $agenda3 = $i['petugas_agenda3'];
-    $tingting1 = $i['petugas_tingting1'];
-    $tingting2 = $i['petugas_tingting2'];
-    $tingting3 = $i['petugas_tingting3'];
-    $pelean1 = $i['petugas_pelean1'];
-    $pelean2 = $i['petugas_pelean2'];
-    $pelean3 = $i['petugas_pelean3'];
-    $balkon1 = $i['petugas_balkon1'];
-    $balkon2 = $i['petugas_balkon2'];
-    $balkon3 = $i['petugas_balkon3'];
-    $dlmgereja1 = $i['petugas_dlmgereja1'];
-    $dlmgereja2 = $i['petugas_dlmgereja2'];
-    $dlmgereja3 = $i['petugas_dlmgereja3'];
-    $musik = $i['petugas_musik'];
-    $ket = $i['petugas_ket'];
-
-    $daftar_hari = array(
-        'Sunday' => 'Minggu',
-        'Monday' => 'Senin',
-        'Tuesday' => 'Selasa',
-        'Wednesday' => 'Rabu',
-        'Thursday' => 'Kamis',
-        'Friday' => 'Jumat',
-        'Saturday' => 'Sabtu');
-
-    $namahari = date('l', strtotime($tanggal));
-    ?>																																																																																																																																														                <?php
-endforeach;
-?>
-
-                </tbody>
-              </table>
-              <hr>
-            </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!--//END Jadwal Petugas -->
-
-
 <!--============================= RENUNGAN =============================-->
 <section class="our_courses">
-    <div class="container">
+    <div id="pengumuman" class="container">
         <div class="row">
             <div class="col-md-12">
-                <h2>Renungan</h2>
+                <h2>Detail Ibadah</h2>
             </div>
         </div>
         <div class="row">
@@ -468,7 +405,7 @@ endforeach;
 <!--//END RENUNGAN -->
 
 <!--============================= VIDEO RENUNGAN =============================-->
-<section class="our_courses">
+<!-- <section class="our_courses">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -493,7 +430,7 @@ endforeach;
 
 
     </div>
-</section>
+</section> -->
 
 <!--//END VIDEO RENUNGAN -->
 <!--============================= Tingting Namaragam =============================-->
@@ -537,24 +474,7 @@ endforeach;
                 </div>
             </div>
 
-            <div class="col-lg-4">
-                <div class="event-img2">
-                <?php foreach ($warta->result() as $row): ?>
-                <div class="row">
-                    <div class="col-sm-3"> <img src="<?php echo base_url() . 'theme/icon/newspaper.png' ?>" class="img-fluid" alt="event-img"></div><!-- // end .col-sm-3 -->
-                    <div class="col-sm-9"> <h3 style="font-size:20px;"><a href="<?php echo site_url('wartafix'); ?>"><?php echo $row->kategori_warta_nama; ?></a></h3>
-                      <span><?php echo $row->wartafix_tgl; ?></span>
-                      <p><?php echo limit_words($row->wartafix_isi, 10) . '...'; ?></p>
-                    </div><!-- // end .col-sm-7 -->
-                </div><!-- // end .row -->
-                <?php endforeach;?>
-                </div>
-            </div>
-
-
-
-
-
+            
         </div>
     </div>
 </section>
@@ -569,7 +489,7 @@ endforeach;
                     <img src="<?php echo base_url() . 'theme/images/chart-icon_1.png' ?>" class="img-fluid" alt="chart_icon">
                 </div>
                 <div class="chart-text">
-                    <p><span class="counter"><?php echo $tot_parhalado; ?></span> Parhalado
+                    <p><span class="counter"><?php echo $tot_misa; ?></span> Misa
                     </p>
                 </div>
             </div>
@@ -578,7 +498,7 @@ endforeach;
                     <img src="<?php echo base_url() . 'theme/images/chart-icon_2.png' ?>" class="img-fluid" alt="chart_icon">
                 </div>
                 <div class="chart-text">
-                    <p><span class="counter"><?php echo $tot_kk; ?></span> Kepala Keluarga
+                    <p><span class="counter"><?php echo $tot_fakultas; ?></span> Fakultas
                     </p>
                 </div>
             </div>
@@ -587,7 +507,7 @@ endforeach;
                     <img src="<?php echo base_url() . 'theme/images/chart-icon_2.png' ?>" class="img-fluid" alt="chart_icon">
                 </div>
                 <div class="chart-text">
-                    <p><span class="counter"><?php echo $tot_jemaat; ?></span> Jemaat
+                    <p><span class="counter"><?php echo $tot_jemaat; ?></span> Mahasiswa
                     </p>
                 </div>
             </div>
@@ -628,13 +548,13 @@ $this->load->view('depan/v_footer');
     <script src="<?php echo base_url() . 'theme/js/script.js' ?>"></script>
 
     <script>
-    $(document).ready(function(){
-        $('#Modal_welcome').modal('show');
-        var now = new Date();
-        var jam = now.getHours() + ':' + now.getMinutes();
-        $('#jamSekarang').text(jam);
-    });
-    </script>
+    // $(document).ready(function(){
+    //     $('#Modal_welcome').modal('show');
+    //     var now = new Date();
+    //     var jam = now.getHours() + ':' + now.getMinutes();
+    //     $('#jamSekarang').text(jam);
+    // });
+    // </script>
 
     <?php if ($this->session->flashdata('msg') == 'success'): ?>
         echo "<script>

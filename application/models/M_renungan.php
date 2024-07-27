@@ -2,11 +2,21 @@
 class M_renungan extends CI_Model{
 
 	function get_all_renungan(){
-		$hsl=$this->db->query("SELECT tbl_renungan.*,DATE_FORMAT(renungan_tanggal,'%d/%m/%Y') AS tanggal FROM tbl_renungan ORDER BY renungan_id DESC");
+		$hsl=$this->db->query("SELECT R.*, M.nama_ibadah, DATE_FORMAT(R.renungan_tanggal, '%d/%m/%Y') AS tanggal 
+		FROM tbl_renungan R 
+		LEFT JOIN tbl_misa M ON M.id = R.id_ibadah 
+		ORDER BY R.renungan_id DESC;
+		");
 		return $hsl;
 	}
-	function simpan_renungan($judul,$isi,$kategori_id,$kategori_nama,$imgslider,$user_id,$user_nama,$gambar,$slug){
-		$hsl=$this->db->query("insert into tbl_renungan(renungan_judul,renungan_isi,renungan_kategori_id,renungan_kategori_nama,renungan_img_slider,renungan_pengguna_id,renungan_author,renungan_gambar,renungan_slug) values ('$judul','$isi','$kategori_id','$kategori_nama','$imgslider','$user_id','$user_nama','$gambar','$slug')");
+
+	function get_all_misa()
+	{
+		$result = $this->db->query("SELECT*FROM tbl_misa WHERE tanggal_ibadah > CURDATE()");
+		return $result;
+	}
+	function simpan_renungan($judul,$isi,$kategori_id,$kategori_nama,$imgslider,$user_id,$user_nama,$gambar,$slug,$id_ibadah){
+		$hsl=$this->db->query("insert into tbl_renungan(renungan_judul,renungan_isi,renungan_kategori_id,renungan_kategori_nama,renungan_img_slider,renungan_pengguna_id,renungan_author,renungan_gambar,renungan_slug,id_ibadah) values ('$judul','$isi','$kategori_id','$kategori_nama','$imgslider','$user_id','$user_nama','$gambar','$slug','$id_ibadah')");
 		return $hsl;
 	}
 	function get_renungan_by_kode($kode){

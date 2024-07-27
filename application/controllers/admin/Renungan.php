@@ -20,7 +20,10 @@ class Renungan extends CI_Controller{
 
 	function add_renungan(){
 		$x['kat']=$this->m_kategori->get_all_kategori();
+		$x['misa'] = $this->m_renungan->get_all_misa();
+
 		$this->load->view('admin/v_add_renungan',$x);
+
 	}
 
 	function video(){
@@ -64,6 +67,7 @@ class Renungan extends CI_Controller{
 													$trim     = trim($string);
 													$slug     = strtolower(str_replace(" ", "-", $trim));
 													$kategori_id=strip_tags($this->input->post('xkategori'));
+													$id_ibadah = $this->input->post("id_ibadah");
 													$data=$this->m_kategori->get_kategori_byid($kategori_id);
 													$q=$data->row_array();
 													$kategori_nama=$q['kategori_nama'];
@@ -74,7 +78,7 @@ class Renungan extends CI_Controller{
 													$p=$user->row_array();
 													$user_id=$p['pengguna_id'];
 													$user_nama=$p['pengguna_nama'];
-													$this->m_renungan->simpan_renungan($judul,$isi,$kategori_id,$kategori_nama,$imgslider,$user_id,$user_nama,$gambar,$slug);
+													$this->m_renungan->simpan_renungan($judul,$isi,$kategori_id,$kategori_nama,$imgslider,$user_id,$user_nama,$gambar,$slug, $id_ibadah);
 													echo $this->session->set_flashdata('msg','success');
 													redirect('admin/renungan');
 											}else{

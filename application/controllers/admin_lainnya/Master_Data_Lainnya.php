@@ -2,16 +2,16 @@
 
 class Master_Data_Lainnya extends CI_Controller
 {
-    private $view_url = "admin_lainnya/master_data_fakultas";
-    function __construct()
+    private $view_url = "admin_lainnya/master_data_lainnya";
+    public function __construct()
     {
         parent::__construct();
-        if ($this->session->userdata('masuk') != TRUE) {
+        if ($this->session->userdata('masuk') != true) {
             $url = base_url('administrator');
             redirect($url);
         };
 
-        $this->load->model('m_master_data_fakultas');
+        $this->load->model('m_master_data_lainnya');
     }
 
     public function index()
@@ -19,72 +19,48 @@ class Master_Data_Lainnya extends CI_Controller
         $kode = $this->session->userdata('idadmin');
 
         $x['mhs'] = $this->m_master_data_lainnya->get_all_mahasiswa($kode);
-        $x['prodi'] = $this->m_master_data_lainnya->get_all_prodi($kode);
         $x['id_admin'] = $kode;
-
+        $x['data_lainnya'] = $this->m_master_data_lainnya->get_id_fakultas($kode);
 
         $this->load->view('admin_lainnya/v_master_data', $x);
         // $this->load->view('admin/v_fakultas_lainnya', $x);
     }
 
-    public function add_prodi()
-    {
-        $id_admin = $this->input->post('id_admin');
-        $nama_prodi = $this->input->post('nama_prodi');
-
-        $this->m_master_data_fakultas->add_prodi($id_admin, $nama_prodi);
-        echo $this->session->set_flashdata('msg', 'success');
-        redirect($this->view_url);
-    }
-
-    public function add_mahasiswa()
-    {
-        $id_admin = $this->input->post('id_admin');
-        $nama_mhs = $this->input->post('nama_mhs');
-        $prodi_mhs = $this->input->post('prodi_mhs');
-
-        $this->m_master_data_fakultas->add_mahasiswa($id_admin, $nama_mhs, $prodi_mhs);
-        echo $this->session->set_flashdata('msg', 'success');
-        redirect($this->view_url);
-    }
-
-    public function edit_prodi()
-    {
-        $id_admin = $this->input->post('id_admin');
-        $id_prodi = $this->input->post('id_prodi');
-        $nama_prodi = $this->input->post('nama_prodi');
-
-        $this->m_master_data_fakultas->edit_prodi($id_admin, $id_prodi, $nama_prodi);
-        echo $this->session->set_flashdata('msg', 'edit');
-        redirect($this->view_url);
-    }
-
-    public function edit_mahasiswa()
+    public function add_anggota()
     {
         $id_mahasiswa = $this->input->post('id_mhs');
-        $nama_mahasiswa = $this->input->post('nama_mahasiswa');
-        $id_prodi = $this->input->post('prodi_mhs');
+        $id = $this->input->post('id_lainnya');
+        if($id_mahasiswa)
+        {
+            $this->m_master_data_lainnya->add_anggota_mhs($id,$id_mahasiswa);
+        } else {
+            $nama = $this->input->post('nama_anggota');
+            $this->m_master_data_lainnya->add_anggota($id, $nama, '');
+        }
+       
+        echo $this->session->set_flashdata('msg', 'success');
+        redirect($this->view_url);
+    }
 
-        $this->m_master_data_fakultas->edit_mahasiswa($id_mahasiswa, $nama_mahasiswa, $id_prodi);
+    public function edit_anggota()
+    {
+        $id_anggota = $this->input->post('id_anggota');
+        $nama_anggota = $this->input->post('nama_anggota');
+
+        $this->m_master_data_lainnya->edit_anggota($id_anggota, $nama_anggota);
         echo $this->session->set_flashdata('msg', 'edit');
         redirect($this->view_url);
     }
 
-    public function delete_prodi()
+    public function delete_anggota()
     {
-        $id_prodi = $this->input->post('id_prodi');
-
-        $this->m_master_data_fakultas->delete_prodi($id_prodi);
+        $id_anggota = $this->input->post('id_anggota');
+        $id_lainnya = $this->input->post('id_lainnya');
+        $nama_anggota = $this->input->post('nama_anggota');
+        $this->m_master_data_lainnya->delete_anggota($id_lainnya, $id_anggota, $nama_anggota);
         echo $this->session->set_flashdata('msg', 'success-hapus');
         redirect($this->view_url);
     }
 
-    public function delete_mahasiswa()
-    {
-        $id_mhs = $this->input->post('id_mhs');
-
-        $this->m_master_data_fakultas->delete_mahasiswa($id_mhs);
-        echo $this->session->set_flashdata('msg', 'success-hapus');
-        redirect($this->view_url);
-    }
+    
 }

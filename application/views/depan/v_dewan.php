@@ -5,8 +5,8 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>HKBP II - Dewan-Dewan </title>
-    <link rel="shorcut icon" href="<?php echo base_url().'theme/images/HKBP2.png'?>">
+    <title>Kapel - Pastor </title>
+    <link rel="shorcut icon" href="<?php echo base_url().'theme/images/UNIKA1.png'?>">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="<?php echo base_url().'theme/css/bootstrap.min.css'?>">
     <!-- Google Fonts -->
@@ -39,7 +39,7 @@
         <div id="koinonia" class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h2 class="mb-5">Dewan Koinonia HKBP Sidikalang II</h2>
+                    <h2 class="mb-5">Pastor Kapel Universitas Katolik St. Thomas</h2>
                 </div>
             </div>
             <div class="row">

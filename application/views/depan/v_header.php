@@ -108,7 +108,7 @@ blockquote::after {
 
 </style>
 
- <div class="header-topbar">
+ <div class="header-topbar" style="background-color: #A60609">
         <div class="container">
             <div class="row">
                 <div class="col-xs-6 col-sm-8 col-md-9">
@@ -117,13 +117,13 @@ blockquote::after {
                             <span class="icon-phone"></span>+62 
                         </div>-->
                         <div class="header-top_list">
-                            <span class="fa fa-institution"></span> DISTRIK VI - RESSORT SIDIKALANG II
+                            <span class="fa fa-institution"></span> Universitas Katolik St. Thomas
                         </div>
                         <!--<div class="header-top_list">
                             <span class="icon-envelope-open"></span>hkbp2sidikalang@gmail.com
                         </div> -->
                         <div class="header-top_list">
-                            <span class="icon-location-pin"></span>Jl. Damai No. 51 Sidikalang - Kab.DAIRI
+                            <span class="icon-location-pin"></span>Jl. Setia Budi No.479, Tj.Sari, Kota Medan, Sumatera Utara
                         </div>
                     </div>
                     <div class="header-top_login2">
@@ -149,10 +149,10 @@ blockquote::after {
                                         <a href="<?php echo site_url('administrator');?>" class="nav-link" style="font-size: 13px;"><i class="fa fa-dashboard" aria-hidden="true"></i> Administrator </a>
                                     </li>
                                     <li>
-                                        <a href="<?php echo site_url('login');?>" data-toggle="modal" data-target="#Modal_login" class="nav-link"><i class="fa fa-sign-in" aria-hidden="true" ></i> Login </a>
+                                        <!-- <a href="<?php echo site_url('login');?>" data-toggle="modal" data-target="#Modal_login" class="nav-link"><i class="fa fa-sign-in" aria-hidden="true" ></i> Login </a> -->
                                     </li>
                                     <li>
-                                        <a href="<?php echo site_url('daftar');?>" data-toggle="modal" data-target="#Modal_register" class="nav-link"><i class="fa fa-user-plus" aria-hidden="true"></i> Daftar</a>
+                                        <!-- <a href="<?php echo site_url('daftar');?>" data-toggle="modal" data-target="#Modal_register" class="nav-link"><i class="fa fa-user-plus" aria-hidden="true"></i> Daftar</a> -->
                                     </li>
                                   </ul>
                             </li>
@@ -190,7 +190,7 @@ blockquote::after {
                         <button class="navbar-toggler navbar-toggler2 navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown">
                             <span class="icon-menu"></span>
                         </button>
-                        <a href="<?php echo site_url('');?>" class="navbar-brand nav-brand2"><img class="img img-responsive" width="165px;" src="<?php echo base_url().'theme/images/themahkbp.png'?>"></a>
+                        <a href="<?php echo site_url('');?>" class="navbar-brand nav-brand2"><img class="img img-responsive" width="300px;" src="<?php echo base_url().'theme/images/logo-1.png'?>"></a>
                        <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
                          <ul class="navbar-nav">
                                 <li class="nav-item">
@@ -198,30 +198,24 @@ blockquote::after {
                                 </li>
 
                                 <li class="dropdown">
-                                    <a class="nav-link" href="<?php echo site_url('#');?>">Tentang
+                                    <a class="nav-link" href="<?php echo site_url('#');?>">Informasi
                                         <span class="fa fa-sort-down" style="font-size:20px; text-align: center;"></span>
                                     </a>
                                     <ul class="isi-dropdown">
-                                        <li><a class="nav-link" href="<?php echo site_url('sejarahgereja');?>">Sejarah HKBP II</a></li>
-                                        <li><a class="nav-link" href="<?php echo site_url('parhalado');?>">Parhalado</a></li>
+                                        <!-- <li><a class="nav-link" href="<?php echo site_url('sejarahgereja');?>">Sejarah HKBP II</a></li>
+                                        <li><a class="nav-link" href="<?php echo site_url('parhalado');?>">Parhalado</a></li> -->
                                         <li><a class="nav-link" href="<?php echo site_url('#jadwal');?>">Jadwal</a></li>
-                                        <li><a class="nav-link" href="<?php echo site_url('download');?>">Tingting</a></li>
+                                        <li><a class="nav-link" href="<?php echo site_url('#pengumuman');?>">Pengumuman</a></li>
+                                        <!-- <li><a class="nav-link" href="<?php echo site_url('download');?>">Tingting</a></li> -->
                                     </ul>
                                 </li>
 
-                                <li class="dropdown">
-                                    <a class="nav-link" href="<?php echo site_url('dewan');?>">Dewan
-                                        <span class="fa fa-sort-down" style="font-size:20px; text-align: center;"></span>
-                                    </a>
-                                    <ul class="isi-dropdown">
-                                        <li><a class="nav-link" href="<?php echo site_url('dewan/#koinonia');?>">Koinonia</a></li>
-                                        <li><a class="nav-link" href="<?php echo site_url('dewan/#marturia');?>">Marturia</a></li>
-                                        <li><a class="nav-link" href="<?php echo site_url('dewan/#diakonia');?>">Diakonia</a></li>
-                                    </ul>
-                                </li>                               
+                                <li class="nav-item">
+                                    <!-- <a class="nav-link" href="<?php echo site_url('dewan');?>">Pastor</a> -->
+                                </li>                            
 
                                  <li class="nav-item">
-                                    <a class="nav-link" href="<?php echo site_url('blog');?>">Renungan</a>
+                                    <a class="nav-link" href="<?php echo site_url('blog');?>">Detail Ibadah</a>
                                 </li>
 
                                <li class="nav-item">

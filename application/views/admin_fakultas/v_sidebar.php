@@ -14,7 +14,7 @@ $jum_pesan = $query->num_rows();
       <li class="header">Menu Utama</li>
 
       <li class="<?php echo $page == 'dashboard' ? 'active' : ''; ?>" id="m_dashboard">
-        <a href="<?php echo base_url() . 'admin/dashboard' ?>">
+        <a href="<?php echo base_url() . 'admin_fakultas/dashboard' ?>">
           <i class="fa fa-dashboard"></i> <span>Dashboard</span>
           <span class="pull-right-container">
             <small class="label pull-right"></small>
